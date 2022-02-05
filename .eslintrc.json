@@ -1,0 +1,27 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "prettier","eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier",
+        "simple-import-sort"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": "error",
+        "prettier/prettier": "error"
+    }
+}
