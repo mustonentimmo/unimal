@@ -113,7 +113,7 @@ const Navbar = () => {
           className="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto"
           id="mobile-menu-2"
         >
-          <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
+          <ul className="md:text-md mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:font-medium">
             {links.map((link) => (
               <li key={link.id}>
                 <a
