@@ -1,4 +1,4 @@
-const shelter = () => {
+const shelterCard = () => {
   return (
     <div className="flex-[1_1_300px] rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800 md:max-w-md">
       <a href="#">
@@ -29,4 +29,4 @@ const shelter = () => {
   )
 }
 
-export default shelter
+export default shelterCard
