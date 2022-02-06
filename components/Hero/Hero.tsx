@@ -4,7 +4,7 @@ const Hero = () => {
       <div className="pt-16 pb-20 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative mx-auto max-w-7xl sm:static">
           <div className="mx-auto text-center sm:max-w-xl lg:m-0">
-            <h1 className="font text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+            <h1 className="font text-4xl font-extrabold tracking-tight sm:text-5xl">
               <span className="text-blue-700">Unimal.</span> - ühtne loomade
               varjupaiga infosüsteem
             </h1>

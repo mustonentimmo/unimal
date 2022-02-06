@@ -33,7 +33,7 @@ const Navbar = () => {
             id="dropdown"
           >
             <div className="py-3 px-4">
-              <span className="block text-sm text-gray-900 dark:text-white">
+              <span className="block text-sm dark:text-white">
                 Bonnie Green
               </span>
               <span className="block truncate text-sm font-medium text-gray-500 dark:text-gray-400">
