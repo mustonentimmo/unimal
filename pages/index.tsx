@@ -6,9 +6,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <section className="flex flex-wrap gap-5">
-        <ShelterCard />
-        <ShelterCard />
+      <section>
+        <div className="text-center text-2xl font-bold">Varjupaigad ()</div>
+        <div className="flex flex-wrap gap-5 py-10">
+          <ShelterCard />
+          <ShelterCard />
+        </div>
       </section>
     </>
   )
