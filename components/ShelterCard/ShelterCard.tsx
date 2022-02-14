@@ -1,22 +1,17 @@
-const shelterCard = () => {
+const shelterCard = ({ name, description, image }) => {
   return (
     <div className="flex-[1_1_300px] rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800 md:max-w-md">
       <a href="#">
-        <img
-          className="rounded-t-lg"
-          src="https://picsum.photos/500/300"
-          alt=""
-        />
+        <img className="rounded-t-lg" src={image} alt="" />
       </a>
       <div className="p-5">
         <a href="#">
           <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
-            Noteworthy technology acquisitions 2021
+            {name}
           </h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Here are the biggest enterprise technology acquisitions of 2021 so
-          far, in reverse chronological order.
+          {description}
         </p>
         <button
           type="button"
