@@ -9,6 +9,7 @@ import {
   ViewGridIcon,
 } from '@heroicons/react/solid'
 import AnimalCard from '@/components/AnimalCard/AnimalCard'
+import cn from 'classnames'
 
 const sortOptions = [
   { name: 'Price: Low to High', href: '#', current: false },
@@ -33,7 +34,7 @@ const filters = [
       { value: 'valge', label: 'Valge', checked: false },
       { value: 'punane', label: 'Punane', checked: false },
       { value: 'hall', label: 'Hall', checked: false },
-      { value: 'kirju', label: 'Kirju', checked: false}
+      { value: 'kirju', label: 'Kirju', checked: false },
     ],
   },
   {
@@ -55,10 +56,6 @@ const filters = [
     ],
   },
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Example() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
@@ -175,7 +172,7 @@ export default function Example() {
         <main className="mx-auto">
           <div className="relative z-10 flex items-baseline justify-between border-b border-gray-200 pb-6">
             <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
-             Varjupaiga loomad
+              Varjupaiga loomad
             </h1>
 
             <div className="flex items-center">
@@ -206,7 +203,7 @@ export default function Example() {
                           {({ active }) => (
                             <a
                               href={option.href}
-                              className={classNames(
+                              className={cn(
                                 option.current
                                   ? 'font-medium text-gray-900'
                                   : 'text-gray-500',
