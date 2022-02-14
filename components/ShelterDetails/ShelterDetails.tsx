@@ -2,20 +2,14 @@ import ImageGallery from 'react-image-gallery'
 import 'react-image-gallery/styles/css/image-gallery.css'
 
 const features = [
-  { name: 'Origin', description: 'Designed by Good Goods, Inc.' },
+  { name: 'Aadress', description: 'Designed by Good Goods, Inc.' },
   {
-    name: 'Material',
+    name: 'Kontakt',
     description:
       'Solid walnut base with rare earth magnets and powder coated steel card cover',
   },
-  { name: 'Dimensions', description: '6.25" x 3.55" x 1.15"' },
-  { name: 'Finish', description: 'Hand sanded and finished with natural oil' },
-  { name: 'Includes', description: 'Wood card tray and 3 refill packs' },
-  {
-    name: 'Considerations',
-    description:
-      'Made from natural materials. Grain and color vary with each item.',
-  },
+  { name: 'Lahtioleku ajad', description: '6.25" x 3.55" x 1.15"' },
+  { name: 'Loomade arv', description: 'Hand sanded and finished with natural oil' },
 ]
 
 const images = [
@@ -36,10 +30,10 @@ const images = [
 const ShelterView = () => {
   return (
     <div className="bg-white">
-      <div className="gap-y-18 grid grid-cols-1 items-center gap-x-8 py-24 sm:py-32 lg:max-w-7xl lg:grid-cols-2">
+      <div className="grid grid-cols-1 items-center gap-y-[3rem] gap-x-[3rem] py-24 sm:py-[6rem] lg:grid-cols-2">
         <div>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Technical Specifications
+            Üldinfo
           </h2>
           <p className="mt-4 text-gray-500">
             The walnut wood card tray is precision milled to perfectly fit a
@@ -51,7 +45,7 @@ const ShelterView = () => {
           <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
             {features.map((feature) => (
               <div key={feature.name} className="border-t border-gray-200 pt-4">
-                <dt className="font-medium">{feature.name}</dt>
+                <dt className="font-medium text-blue-700">{feature.name}</dt>
                 <dd className="mt-2 text-sm text-gray-500">
                   {feature.description}
                 </dd>
@@ -59,7 +53,11 @@ const ShelterView = () => {
             ))}
           </dl>
         </div>
-        <ImageGallery items={images} showPlayButton={false} />
+        <ImageGallery
+          additionalClass="mb-auto"
+          items={images}
+          showPlayButton={false}
+        />
       </div>
     </div>
   )
