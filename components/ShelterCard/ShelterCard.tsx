@@ -17,7 +17,7 @@ const shelterCard = ({ name, description, image }: shelterCardProps) => {
             {name}
           </h5>
         </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-700 line-clamp-2 dark:text-gray-400">
           {description}
         </p>
         <button
