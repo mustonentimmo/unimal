@@ -17,6 +17,7 @@ const Home = ({ shelters }) => {
           {shelters.data.map((shelter) => (
             <ShelterCard
               key={shelter.id}
+              id={shelter.id}
               name={shelter.attributes.shelter_name}
               description={shelter.attributes.shelter_description}
               image={shelter.attributes.shelter_image}
@@ -28,10 +29,4 @@ const Home = ({ shelters }) => {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`http://65.108.153.196:1337/api/shelters/`)
-  const shelters = await res.json()
-
-  return { props: { shelters } }
-}
 export default Home
