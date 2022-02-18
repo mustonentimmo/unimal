@@ -1,6 +1,8 @@
+import Link from 'next/link'
+
 const Navbar = () => {
   const links = [
-    { id: 1, title: 'Varjupaigad', href: '#shelter' },
+    { id: 1, title: 'Varjupaigad', href: '/' },
     { id: 2, title: 'Leia koduloom', href: '' },
     { id: 3, title: 'Anneta', href: '' },
   ]
@@ -8,11 +10,13 @@ const Navbar = () => {
   return (
     <nav className="rounded border-gray-200 bg-white py-7 dark:bg-gray-800">
       <div className="flex flex-wrap items-center justify-between">
-        <a href="#" className="flex">
-          <span className="self-center whitespace-nowrap text-lg font-semibold text-blue-700 dark:text-white">
-            Unimal.
-          </span>
-        </a>
+        <Link href="/">
+          <a className="flex">
+            <span className="self-center whitespace-nowrap text-lg font-semibold text-blue-700 dark:text-white">
+              Unimal
+            </span>
+          </a>
+        </Link>
         <div className="flex items-center md:order-2">
           <button
             type="button"
@@ -116,12 +120,11 @@ const Navbar = () => {
           <ul className="md:text-md mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:font-medium">
             {links.map((link) => (
               <li key={link.id}>
-                <a
-                  href={link.href}
-                  className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
-                >
-                  {link.title}
-                </a>
+                <Link href={link.href}>
+                  <a className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white">
+                    {link.title}
+                  </a>
+                </Link>
               </li>
             ))}
           </ul>
