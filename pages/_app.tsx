@@ -11,7 +11,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 }
 
 MyApp.getInitialProps = async () => {
-  const res = await fetch(`http://65.108.153.196:1337/api/shelters/`)
+  const res = await fetch(`${process.env.API_HOST}/api/shelters/`)
   const shelters = await res.json()
 
   return { pageProps: { shelters } }
