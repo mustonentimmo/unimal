@@ -25,7 +25,9 @@ const customStyles = {
   option: (provided, state) => ({
     ...provided,
     padding: 15,
-    backgroundColor: state.isSelected ? '#1a56db' : '',
+    backgroundColor: state.isSelected ? '' : '',
+    color: state.isSelected ? '#1a56db' : '',
+    fontWeight: state.isSelected ? 700 : '',
     cursor: 'pointer',
     '&:hover': {
       color: '#1a56db',
