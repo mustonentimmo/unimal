@@ -1,3 +1,4 @@
+// @ts-nocheck
 import ImageGallery from 'react-image-gallery'
 import 'react-image-gallery/styles/css/image-gallery.css'
 
@@ -5,6 +6,7 @@ interface ShelterDetailsProps {
   shelterContact: string
   shelterDescription: string
   shelterLocation: string
+  shelterPictures: string[]
   animalsCount: number
 }
 
@@ -12,6 +14,7 @@ const ShelterDetails = ({
   shelterContact,
   shelterDescription,
   shelterLocation,
+  shelterPictures,
   animalsCount,
 }: ShelterDetailsProps) => {
   const shelterInfo = [
@@ -58,11 +61,11 @@ const ShelterDetails = ({
             ))}
           </dl>
         </div>
-        {/*<ImageGallery*/}
-        {/*  additionalClass="mb-auto"*/}
-        {/*  items={''}*/}
-        {/*  showPlayButton={false}*/}
-        {/*/>*/}
+        <ImageGallery
+          additionalClass="mb-auto"
+          items={shelterPictures}
+          showPlayButton={false}
+        />
       </div>
     </div>
   )
