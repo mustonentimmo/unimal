@@ -26,6 +26,10 @@ const customStyles = {
     ...provided,
     padding: 15,
     backgroundColor: state.isSelected ? '#1a56db' : '',
+    cursor: 'pointer',
+    '&:hover': {
+      color: '#1a56db',
+    },
   }),
   control: (base) => ({
     ...base,
