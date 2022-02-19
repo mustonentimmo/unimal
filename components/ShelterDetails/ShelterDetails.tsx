@@ -4,19 +4,32 @@ import 'react-image-gallery/styles/css/image-gallery.css'
 interface ShelterDetailsProps {
   shelterContact: string
   shelterDescription: string
-  shelterAddress: string
+  shelterLocation: string
   animalsCount: number
 }
 
 const ShelterDetails = ({
   shelterContact,
   shelterDescription,
-  shelterAddress,
+  shelterLocation,
   animalsCount,
 }: ShelterDetailsProps) => {
   const shelterInfo = [
-    { title: 'Kontakt', context: shelterContact['telephone'] },
-    { title: 'Aadress', context: shelterAddress },
+    {
+      title: 'Kontakt',
+      context: [
+        { title: 'E-mail', value: shelterContact['email'] },
+        { title: 'Telefon', value: shelterContact['telephone'] },
+      ],
+    },
+    {
+      title: 'Asukoht',
+      context: [
+        { title: 'Aadress', value: shelterLocation['address'] },
+        { title: 'Maakond', value: shelterLocation['county'] },
+        { title: 'Postiindeks', value: shelterLocation['postal_index'] },
+      ],
+    },
     { title: 'Loomade arv', context: animalsCount },
   ]
 
@@ -32,7 +45,15 @@ const ShelterDetails = ({
             {shelterInfo.map((item) => (
               <div className="border-t border-gray-200 pt-4">
                 <dt className="font-medium text-blue-700">{item.title}</dt>
-                <dd className="mt-2 text-sm text-gray-500">{item.context}</dd>
+                {item.context.length > 1 ? (
+                  item['context'].map((nested_item: any) => (
+                    <dd className="mt-2 text-sm text-gray-500">
+                      <b>{nested_item.title}</b>: {nested_item.value}
+                    </dd>
+                  ))
+                ) : (
+                  <dd className="mt-2 text-sm text-gray-500">{item.context}</dd>
+                )}
               </div>
             ))}
           </dl>
