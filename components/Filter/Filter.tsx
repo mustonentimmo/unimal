@@ -4,6 +4,7 @@ import { Formik } from 'formik'
 import Select from 'react-select'
 
 const options = [
+  { value: 'kõik', label: 'Kõik' },
   { value: 'harju', label: 'Harju' },
   { value: 'hiiu', label: 'Hiiu' },
   { value: 'ida-viru', label: 'Ida-viru' },
