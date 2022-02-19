@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import ShelterCard from '@/components/ShelterCard/ShelterCard'
 import Hero from '@/components/Hero/Hero'
+import Filter from '@/components/Filter/Filter'
 
 const Home = ({ shelters }) => {
   console.log(shelters.data)
@@ -13,6 +14,7 @@ const Home = ({ shelters }) => {
         <div className="text-center text-2xl font-bold">
           Varjupaigad ({totalShelter})
         </div>
+        <Filter />
         <div className="flex flex-wrap gap-5 py-7">
           {shelters.data.map((shelter) => (
             <ShelterCard
