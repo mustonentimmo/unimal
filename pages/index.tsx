@@ -3,8 +3,7 @@ import ShelterCard from '@/components/ShelterCard/ShelterCard'
 import Hero from '@/components/Hero/Hero'
 import Filter from '@/components/Filter/Filter'
 
-const Home = ({ shelters }) => {
-  console.log(shelters.data)
+const Home = ({ shelters }: any) => {
   const totalShelter = shelters.data.length
 
   return (
@@ -16,7 +15,7 @@ const Home = ({ shelters }) => {
         </div>
         <Filter />
         <div className="flex flex-wrap gap-5 py-7">
-          {shelters.data.map((shelter) => (
+          {shelters.data.map((shelter: any) => (
             <ShelterCard
               key={shelter.id}
               id={shelter.id}
