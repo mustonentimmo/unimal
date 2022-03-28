@@ -1,11 +1,11 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Navbar = () => {
   const links = [
     { id: 1, title: 'Varjupaigad', href: '/' },
-    { id: 2, title: 'Leia koduloom', href: '' },
-    { id: 3, title: 'Anneta', href: '' },
-  ]
+    { id: 2, title: 'Leia koduloom', href: '/' },
+    { id: 3, title: 'Anneta', href: '/' }
+  ];
 
   return (
     <nav className="rounded border-gray-200 bg-white py-7 dark:bg-gray-800">
@@ -37,9 +37,7 @@ const Navbar = () => {
             id="dropdown"
           >
             <div className="py-3 px-4">
-              <span className="block text-sm dark:text-white">
-                Bonnie Green
-              </span>
+              <span className="block text-sm dark:text-white">Bonnie Green</span>
               <span className="block truncate text-sm font-medium text-gray-500 dark:text-gray-400">
                 name@flowbite.com
               </span>
@@ -131,7 +129,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

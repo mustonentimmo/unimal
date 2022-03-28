@@ -1,20 +1,20 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
-import { XIcon } from '@heroicons/react/outline'
+import { Fragment, useState } from 'react';
+import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
+import { XIcon } from '@heroicons/react/outline';
 import {
   ChevronDownIcon,
   FilterIcon,
   MinusSmIcon,
   PlusSmIcon,
-  ViewGridIcon,
-} from '@heroicons/react/solid'
-import AnimalCard from '@/components/AnimalCard/AnimalCard'
-import cn from 'classnames'
+  ViewGridIcon
+} from '@heroicons/react/solid';
+import AnimalCard from '@/components/AnimalCard/AnimalCard';
+import cn from 'classnames';
 
 const sortOptions = [
   { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
-]
+  { name: 'Price: High to Low', href: '#', current: false }
+];
 
 const filters = [
   {
@@ -23,8 +23,8 @@ const filters = [
     options: [
       { value: 'koer', label: 'Koer', checked: false },
       { value: 'kass', label: 'Kass', checked: false },
-      { value: 'muu', label: 'Muu', checked: false },
-    ],
+      { value: 'muu', label: 'Muu', checked: false }
+    ]
   },
   {
     id: 'color',
@@ -34,8 +34,8 @@ const filters = [
       { value: 'valge', label: 'Valge', checked: false },
       { value: 'punane', label: 'Punane', checked: false },
       { value: 'hall', label: 'Hall', checked: false },
-      { value: 'kirju', label: 'Kirju', checked: false },
-    ],
+      { value: 'kirju', label: 'Kirju', checked: false }
+    ]
   },
   {
     id: 'size',
@@ -43,8 +43,8 @@ const filters = [
     options: [
       { value: 'pisike', label: 'Pisike', checked: false },
       { value: 'keskmine', label: 'Keskmine', checked: false },
-      { value: 'suur', label: 'Suur', checked: false },
-    ],
+      { value: 'suur', label: 'Suur', checked: false }
+    ]
   },
   {
     id: 'age',
@@ -52,13 +52,13 @@ const filters = [
     options: [
       { value: 'pisike', label: 'Pisike', checked: false },
       { value: 'keskmine', label: 'Keskmine', checked: false },
-      { value: 'suur', label: 'Suur', checked: false },
-    ],
-  },
-]
+      { value: 'suur', label: 'Suur', checked: false }
+    ]
+  }
+];
 
 export default function Example() {
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
     <div className="bg-white">
@@ -116,20 +116,12 @@ export default function Example() {
                         <>
                           <h3 className="-mx-2 -my-3 flow-root">
                             <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                              <span className="font-medium text-blue-700">
-                                {section.name}
-                              </span>
+                              <span className="font-medium text-blue-700">{section.name}</span>
                               <span className="ml-6 flex items-center">
                                 {open ? (
-                                  <MinusSmIcon
-                                    className="h-5 w-5"
-                                    aria-hidden="true"
-                                  />
+                                  <MinusSmIcon className="h-5 w-5" aria-hidden="true" />
                                 ) : (
-                                  <PlusSmIcon
-                                    className="h-5 w-5"
-                                    aria-hidden="true"
-                                  />
+                                  <PlusSmIcon className="h-5 w-5" aria-hidden="true" />
                                 )}
                               </span>
                             </Disclosure.Button>
@@ -137,10 +129,7 @@ export default function Example() {
                           <Disclosure.Panel className="pt-6">
                             <div className="space-y-6">
                               {section.options.map((option, optionIdx) => (
-                                <div
-                                  key={option.value}
-                                  className="flex items-center"
-                                >
+                                <div key={option.value} className="flex items-center">
                                   <input
                                     id={`filter-mobile-${section.id}-${optionIdx}`}
                                     name={`${section.id}[]`}
@@ -204,9 +193,7 @@ export default function Example() {
                             <a
                               href={option.href}
                               className={cn(
-                                option.current
-                                  ? 'font-medium text-gray-900'
-                                  : 'text-gray-500',
+                                option.current ? 'font-medium text-gray-900' : 'text-gray-500',
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm'
                               )}
@@ -248,29 +235,17 @@ export default function Example() {
               {/* Filters */}
               <form className="hidden lg:block">
                 {filters.map((section) => (
-                  <Disclosure
-                    as="div"
-                    key={section.id}
-                    className="border-b border-gray-200 py-6"
-                  >
+                  <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
                           <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-blue-600 hover:text-blue-700">
-                            <span className="font-medium text-gray-900">
-                              {section.name}
-                            </span>
+                            <span className="font-medium text-gray-900">{section.name}</span>
                             <span className="ml-6 flex items-center">
                               {open ? (
-                                <MinusSmIcon
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                />
+                                <MinusSmIcon className="h-5 w-5" aria-hidden="true" />
                               ) : (
-                                <PlusSmIcon
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                />
+                                <PlusSmIcon className="h-5 w-5" aria-hidden="true" />
                               )}
                             </span>
                           </Disclosure.Button>
@@ -278,10 +253,7 @@ export default function Example() {
                         <Disclosure.Panel className="pt-6">
                           <div className="space-y-4">
                             {section.options.map((option, optionIdx) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center"
-                              >
+                              <div key={option.value} className="flex items-center">
                                 <input
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
@@ -321,5 +293,5 @@ export default function Example() {
         </main>
       </div>
     </div>
-  )
+  );
 }

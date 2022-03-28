@@ -1,18 +1,16 @@
-import Head from 'next/head'
-import ShelterCard from '@/components/ShelterCard/ShelterCard'
-import Hero from '@/components/Hero/Hero'
-import Filter from '@/components/Filter/Filter'
+import Head from 'next/head';
+import ShelterCard from '@/components/ShelterCard/ShelterCard';
+import Hero from '@/components/Hero/Hero';
+import Filter from '@/components/Filter/Filter';
 
 const Home = ({ shelters }: any) => {
-  const totalShelter = shelters.data.length
+  const totalShelter = shelters.data.length;
 
   return (
     <>
       <Hero />
       <section id="shelter" className="mt-[3rem]">
-        <div className="text-center text-2xl font-bold">
-          Varjupaigad ({totalShelter})
-        </div>
+        <div className="text-center text-2xl font-bold">Varjupaigad ({totalShelter})</div>
         <Filter />
         <div className="flex flex-wrap gap-5 py-7">
           {shelters.data.map((shelter: any) => (
@@ -27,7 +25,7 @@ const Home = ({ shelters }: any) => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

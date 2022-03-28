@@ -1,10 +1,10 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 interface shelterCardProps {
-  id: number
-  name: string
-  description: string
-  image: string
+  id: number;
+  name: string;
+  description: string;
+  image: string;
 }
 
 const shelterCard = ({ name, description, image, id }: shelterCardProps) => {
@@ -13,9 +13,7 @@ const shelterCard = ({ name, description, image, id }: shelterCardProps) => {
       <div className="h-[25rem] bg-[url('/placeholder.svg')] bg-contain bg-center"></div>
       <div className="flex h-[12rem] flex-col p-5">
         <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
-            {name}
-          </h5>
+          <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">{name}</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 line-clamp-2 dark:text-gray-400">
           {description}
@@ -30,7 +28,7 @@ const shelterCard = ({ name, description, image, id }: shelterCardProps) => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default shelterCard
+export default shelterCard;

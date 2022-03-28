@@ -14,5 +14,5 @@ export const counties = [
   { value: 'tartu', label: 'Tartu' },
   { value: 'viljandi', label: 'Viljandi' },
   { value: 'voru', label: 'Võru' },
-  { value: 'valga', label: 'Valga' },
-]
+  { value: 'valga', label: 'Valga' }
+];

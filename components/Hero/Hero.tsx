@@ -5,12 +5,11 @@ const Hero = () => {
         <div className="relative mx-auto max-w-7xl sm:static">
           <div className="mx-auto text-center sm:max-w-xl lg:m-0">
             <h1 className="font text-4xl font-extrabold tracking-tight sm:text-5xl">
-              <span className="text-blue-700">Unimal.</span> - ühtne loomade
-              varjupaiga infosüsteem
+              <span className="text-blue-700">Unimal.</span> - ühtne loomade varjupaiga infosüsteem
             </h1>
             <p className="mt-4 text-xl text-gray-500">
-              This year, our new summer collection will shelter you from the
-              harsh elements of a world that doesn't care if you live or die.
+              This year, our new summer collection will shelter you from the harsh elements of a
+              world that doesn't care if you live or die.
             </p>
           </div>
           <div>
@@ -85,7 +84,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

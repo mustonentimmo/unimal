@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import Select from 'react-select'
-import { counties } from '@/shared/helpers'
-import { selectFieldStyle } from '@/shared/customStyles'
+import Select from 'react-select';
+import { counties } from '@/shared/helpers';
+import { selectFieldStyle } from '@/shared/customStyles';
 
 const Filter = () => {
   return (
@@ -15,7 +15,7 @@ const Filter = () => {
         onChange={(e) => console.log(e)}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Filter
+export default Filter;
