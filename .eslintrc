@@ -1,4 +1,7 @@
 {
+    "settings": {
+        "version": "detect"
+    },
     "env": {
         "node": true,
         "browser": true,
@@ -32,7 +35,6 @@
             "globalReturn": true,
             "jsx": true
         },
-        "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": [
@@ -44,6 +46,7 @@
         "react/react-in-jsx-scope": "off",
         "simple-import-sort/exports": "error",
         "simple-import-sort/imports": "error",
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "prefer-const": "error"
     }
 }
