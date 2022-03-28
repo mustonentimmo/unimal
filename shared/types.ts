@@ -1,4 +1,4 @@
 export interface GalleryObject {
-  original: string
-  thumbnail: string
+  original: string;
+  thumbnail: string;
 }

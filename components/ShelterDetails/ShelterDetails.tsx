@@ -15,25 +15,25 @@ const ShelterDetails = ({
   shelterDescription,
   shelterLocation,
   shelterPictures,
-  animalsCount
+  animalsCount,
 }: ShelterDetailsProps) => {
   const shelterInfo = [
     {
       title: 'Kontakt',
       context: [
         { title: 'E-mail', value: shelterContact['email'] },
-        { title: 'Telefon', value: shelterContact['telephone'] }
-      ]
+        { title: 'Telefon', value: shelterContact['telephone'] },
+      ],
     },
     {
       title: 'Asukoht',
       context: [
         { title: 'Aadress', value: shelterLocation['address'] },
         { title: 'Maakond', value: shelterLocation['county'] },
-        { title: 'Postiindeks', value: shelterLocation['postal_index'] }
-      ]
+        { title: 'Postiindeks', value: shelterLocation['postal_index'] },
+      ],
     },
-    { title: 'Loomade arv', context: animalsCount }
+    { title: 'Loomade arv', context: animalsCount },
   ];
 
   return (

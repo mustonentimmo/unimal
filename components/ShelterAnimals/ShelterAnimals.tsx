@@ -1,4 +1,3 @@
-import { Fragment, useState } from 'react';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 import {
@@ -6,14 +5,16 @@ import {
   FilterIcon,
   MinusSmIcon,
   PlusSmIcon,
-  ViewGridIcon
+  ViewGridIcon,
 } from '@heroicons/react/solid';
-import AnimalCard from '@/components/AnimalCard/AnimalCard';
 import cn from 'classnames';
+import { Fragment, useState } from 'react';
+
+import AnimalCard from '@/components/AnimalCard/AnimalCard';
 
 const sortOptions = [
   { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false }
+  { name: 'Price: High to Low', href: '#', current: false },
 ];
 
 const filters = [
@@ -23,8 +24,8 @@ const filters = [
     options: [
       { value: 'koer', label: 'Koer', checked: false },
       { value: 'kass', label: 'Kass', checked: false },
-      { value: 'muu', label: 'Muu', checked: false }
-    ]
+      { value: 'muu', label: 'Muu', checked: false },
+    ],
   },
   {
     id: 'color',
@@ -34,8 +35,8 @@ const filters = [
       { value: 'valge', label: 'Valge', checked: false },
       { value: 'punane', label: 'Punane', checked: false },
       { value: 'hall', label: 'Hall', checked: false },
-      { value: 'kirju', label: 'Kirju', checked: false }
-    ]
+      { value: 'kirju', label: 'Kirju', checked: false },
+    ],
   },
   {
     id: 'size',
@@ -43,8 +44,8 @@ const filters = [
     options: [
       { value: 'pisike', label: 'Pisike', checked: false },
       { value: 'keskmine', label: 'Keskmine', checked: false },
-      { value: 'suur', label: 'Suur', checked: false }
-    ]
+      { value: 'suur', label: 'Suur', checked: false },
+    ],
   },
   {
     id: 'age',
@@ -52,9 +53,9 @@ const filters = [
     options: [
       { value: 'pisike', label: 'Pisike', checked: false },
       { value: 'keskmine', label: 'Keskmine', checked: false },
-      { value: 'suur', label: 'Suur', checked: false }
-    ]
-  }
+      { value: 'suur', label: 'Suur', checked: false },
+    ],
+  },
 ];
 
 export default function Example() {

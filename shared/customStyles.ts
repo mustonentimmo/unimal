@@ -28,4 +28,4 @@ export const selectFieldStyle = {
   indicatorSeparator: () => ({
     display: 'none',
   }),
-}
+};

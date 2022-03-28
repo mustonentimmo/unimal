@@ -1,8 +1,8 @@
 import React from 'react';
-
 import Select from 'react-select';
-import { counties } from '@/shared/helpers';
+
 import { selectFieldStyle } from '@/shared/customStyles';
+import { counties } from '@/shared/helpers';
 
 const Filter = () => {
   return (
