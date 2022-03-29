@@ -48,6 +48,6 @@
         "simple-import-sort/exports": "error",
         "simple-import-sort/imports": "error",
         "prettier/prettier": "error",
-        "prefer-const": "error"
+        "no-var": "error"
     }
 }
