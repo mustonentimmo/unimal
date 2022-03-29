@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "lint": "eslint --fix --ext .js,.jsx,.tsx ."
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
@@ -28,7 +28,7 @@
     "@types/node": "17.0.4",
     "@types/react": "17.0.38",
     "autoprefixer": "^10.4.0",
-    "eslint": "^8.8.0",
+    "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
