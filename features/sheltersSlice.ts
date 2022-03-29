@@ -33,7 +33,7 @@ export const fetchShelters = () => {
   return function (dispatch: Dispatch) {
     dispatch(getShelters());
     axios
-      .get('')
+      .get(`${process.env.API_HOST}/api/shelters/`)
       .then((response) => {
         dispatch(getSheltersSuccess(response));
       })
