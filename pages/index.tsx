@@ -1,7 +1,6 @@
-import Head from 'next/head';
-import ShelterCard from '@/components/ShelterCard/ShelterCard';
-import Hero from '@/components/Hero/Hero';
 import Filter from '@/components/Filter/Filter';
+import Hero from '@/components/Hero/Hero';
+import ShelterCard from '@/components/ShelterCard/ShelterCard';
 
 const Home = ({ shelters }: any) => {
   const totalShelter = shelters.data.length;

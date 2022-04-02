@@ -1,6 +1,6 @@
-// @ts-nocheck
-import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
+
+import ImageGallery from 'react-image-gallery';
 
 interface ShelterDetailsProps {
   shelterContact: string;
@@ -10,6 +10,11 @@ interface ShelterDetailsProps {
   animalsCount: number;
 }
 
+interface ShelterInfo {
+  title: string;
+  context: { title: string; value: string }[] | number;
+}
+
 const ShelterDetails = ({
   shelterContact,
   shelterDescription,
@@ -17,7 +22,7 @@ const ShelterDetails = ({
   shelterPictures,
   animalsCount,
 }: ShelterDetailsProps) => {
-  const shelterInfo = [
+  const shelterInfo: ShelterInfo[] = [
     {
       title: 'Kontakt',
       context: [
