@@ -12,7 +12,7 @@ interface ShelterDetailsProps {
 
 interface ShelterInfo {
   title: string;
-  context: { title: string; value: string }[] | number;
+  context: { title: string; value: string }[];
 }
 
 const ShelterDetails = ({
@@ -48,12 +48,12 @@ const ShelterDetails = ({
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Üldinfo</h2>
           <p className="mt-4 text-gray-500">{shelterDescription}</p>
           <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-            {shelterInfo.map((item) => (
-              <div className="border-t border-gray-200 pt-4">
+            {shelterInfo.map((item, index) => (
+              <div key={index} className="border-t border-gray-200 pt-4">
                 <dt className="font-medium text-blue-700">{item.title}</dt>
                 {item.context.length > 1 ? (
-                  item['context'].map((nested_item: any) => (
-                    <dd className="mt-2 text-sm text-gray-500">
+                  item['context'].map((nested_item: any, index) => (
+                    <dd key={index} className="mt-2 text-sm text-gray-500">
                       <b>{nested_item.title}</b>: {nested_item.value}
                     </dd>
                   ))
