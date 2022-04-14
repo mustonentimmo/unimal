@@ -13,7 +13,7 @@ import { Fragment, useState } from 'react';
 import AnimalCard from '@/components/AnimalCard/AnimalCard';
 
 const sortOptions = [
-  { name: 'Price: Low to High', href: '#', current: false },
+  { name: 'äsja saabunud', href: '#', current: false },
   { name: 'Price: High to Low', href: '#', current: false },
 ];
 
@@ -58,8 +58,10 @@ const filters = [
   },
 ];
 
-export default function Example() {
+export default function ShelterAnimals({ animals }) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  console.log(animals);
 
   return (
     <div className="bg-white">
@@ -94,7 +96,7 @@ export default function Example() {
             >
               <div className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
                 <div className="flex items-center justify-between px-4">
-                  <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                  <h2 className="text-lg font-medium text-gray-900">Filtreeri</h2>
                   <button
                     type="button"
                     className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
@@ -169,7 +171,7 @@ export default function Example() {
               <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Sort
+                    Sorteeri
                     <ChevronDownIcon
                       className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
@@ -279,15 +281,10 @@ export default function Example() {
                 ))}
               </form>
 
-              {/* Product grid */}
               <div className="flex flex-wrap gap-4 lg:col-span-3">
-                {/* Replace with your content */}
-                <AnimalCard />
-                <AnimalCard />
-                <AnimalCard />
-                <AnimalCard />
-                <AnimalCard />
-                {/* /End replace */}
+                {animals.map((animal) => (
+                  <AnimalCard key={animal.id} name={animal.name} />
+                ))}
               </div>
             </div>
           </section>
