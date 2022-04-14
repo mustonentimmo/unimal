@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+
 import sheltersReducer from './features/sheltersSlice';
 
 export const store = configureStore({
