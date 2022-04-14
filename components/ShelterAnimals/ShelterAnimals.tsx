@@ -11,52 +11,7 @@ import cn from 'classnames';
 import { Fragment, useState } from 'react';
 
 import AnimalCard from '@/components/AnimalCard/AnimalCard';
-
-const sortOptions = [
-  { name: 'äsja saabunud', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
-];
-
-const filters = [
-  {
-    id: 'species',
-    name: 'Liik',
-    options: [
-      { value: 'koer', label: 'Koer', checked: false },
-      { value: 'kass', label: 'Kass', checked: false },
-      { value: 'muu', label: 'Muu', checked: false },
-    ],
-  },
-  {
-    id: 'color',
-    name: 'Värvus',
-    options: [
-      { value: 'must', label: 'Must', checked: false },
-      { value: 'valge', label: 'Valge', checked: false },
-      { value: 'punane', label: 'Punane', checked: false },
-      { value: 'hall', label: 'Hall', checked: false },
-      { value: 'kirju', label: 'Kirju', checked: false },
-    ],
-  },
-  {
-    id: 'size',
-    name: 'Suurus',
-    options: [
-      { value: 'pisike', label: 'Pisike', checked: false },
-      { value: 'keskmine', label: 'Keskmine', checked: false },
-      { value: 'suur', label: 'Suur', checked: false },
-    ],
-  },
-  {
-    id: 'age',
-    name: 'Vanus',
-    options: [
-      { value: 'pisike', label: 'Pisike', checked: false },
-      { value: 'keskmine', label: 'Keskmine', checked: false },
-      { value: 'suur', label: 'Suur', checked: false },
-    ],
-  },
-];
+import { animalFilters, animalSortOptions } from '@/shared/helpers';
 
 export default function ShelterAnimals({ animals }) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -109,7 +64,7 @@ export default function ShelterAnimals({ animals }) {
 
                 {/* Filters */}
                 <form className="mt-4 border-t border-gray-200">
-                  {filters.map((section) => (
+                  {animalFilters.map((section) => (
                     <Disclosure
                       as="div"
                       key={section.id}
@@ -190,7 +145,7 @@ export default function ShelterAnimals({ animals }) {
                 >
                   <Menu.Items className="absolute right-0 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
-                      {sortOptions.map((option) => (
+                      {animalSortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
                             <a
@@ -237,7 +192,7 @@ export default function ShelterAnimals({ animals }) {
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
               <form className="hidden lg:block">
-                {filters.map((section) => (
+                {animalFilters.map((section) => (
                   <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
                     {({ open }) => (
                       <>
