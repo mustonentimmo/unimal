@@ -5,16 +5,16 @@ const Hero = () => {
         <div className="relative mx-auto max-w-7xl sm:static">
           <div className="mx-auto text-center sm:max-w-xl lg:m-0">
             <h1 className="font text-4xl font-extrabold tracking-tight sm:text-5xl">
-              <span className="text-blue-700">Unimal.</span> - ühtne loomade varjupaiga infosüsteem
+              <span className="text-blue-700">Unimal</span> - ühtne loomade varjupaiga infosüsteem
             </h1>
             <p className="mt-4 text-xl text-gray-500">
-              This year, our new summer collection will shelter you from the harsh elements of a
-              world that doesn't care if you live or die.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae dolor in leo
+              volutpat placerat nec sit amet est. Cras id dui sed nunc tincidunt faucibus in non
+              lacus. Cras eu euismod odio.
             </p>
           </div>
           <div>
             <div className="mt-10 hidden lg:block">
-              {/* Decorative image grid */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
