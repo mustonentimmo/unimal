@@ -3,10 +3,10 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import ImageGallery from 'react-image-gallery';
 
 interface ShelterDetailsProps {
-  shelterContact: string;
-  shelterDescription: string;
-  shelterLocation: string;
-  shelterPictures: string[];
+  contact: string;
+  description: string;
+  location: string;
+  pictures: string[];
   animalsCount: number;
 }
 
@@ -16,26 +16,26 @@ interface ShelterInfo {
 }
 
 const ShelterDetails = ({
-  shelterContact,
-  shelterDescription,
-  shelterLocation,
-  shelterPictures,
+  contact,
+  description,
+  location,
+  pictures,
   animalsCount,
 }: ShelterDetailsProps) => {
   const shelterInfo: ShelterInfo[] = [
     {
       title: 'Kontakt',
       context: [
-        { title: 'E-mail', value: shelterContact['email'] },
-        { title: 'Telefon', value: shelterContact['telephone'] },
+        { title: 'E-mail', value: contact['email'] },
+        { title: 'Telefon', value: contact['telephone'] },
       ],
     },
     {
       title: 'Asukoht',
       context: [
-        { title: 'Aadress', value: shelterLocation['address'] },
-        { title: 'Maakond', value: shelterLocation['county'] },
-        { title: 'Postiindeks', value: shelterLocation['postal_index'] },
+        { title: 'Aadress', value: location['address'] },
+        { title: 'Maakond', value: location['county'] },
+        { title: 'Postiindeks', value: location['postal_index'] },
       ],
     },
     { title: 'Loomade arv', context: animalsCount },
@@ -46,7 +46,7 @@ const ShelterDetails = ({
       <div className="grid grid-cols-1 items-center gap-y-[3rem] gap-x-[3rem] py-24 sm:py-[6rem] lg:grid-cols-2">
         <div>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Üldinfo</h2>
-          <p className="mt-4 text-gray-500">{shelterDescription}</p>
+          <p className="mt-4 text-gray-500">{description}</p>
           <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
             {shelterInfo.map((item, index) => (
               <div key={index} className="border-t border-gray-200 pt-4">
@@ -64,7 +64,6 @@ const ShelterDetails = ({
             ))}
           </dl>
         </div>
-        <ImageGallery additionalClass="mb-auto" items={shelterPictures} showPlayButton={false} />
       </div>
     </div>
   );
