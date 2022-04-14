@@ -1,11 +1,12 @@
 import { createSlice, Dispatch } from '@reduxjs/toolkit';
-import { RootState } from '../store';
 import axios from 'axios';
+
+import { RootState } from '../store';
 
 export const initialState = {
   loading: false,
   hasError: false,
-  shelters: [],
+  data: [],
 };
 
 const sheltersSlice = createSlice({
@@ -16,29 +17,30 @@ const sheltersSlice = createSlice({
       state.loading = true;
     },
     getSheltersSuccess: (state, { payload }) => {
-      (state.loading = false), (state.hasError = false), (state.shelters = payload);
+      (state.loading = false), (state.hasError = false), (state.data = payload);
     },
-    getSheltersFailure: (state, { payload }) => {
-      (state.loading = false), (state.hasError = true), (state.shelters = []);
+    getSheltersFailure: (state) => {
+      (state.loading = false), (state.hasError = true), (state.data = []);
     },
   },
 });
 
 export const { getShelters, getSheltersSuccess, getSheltersFailure } = sheltersSlice.actions;
-export const sheltersSelector = (state: RootState) => state.shelters;
+export const sheltersSelector = (state: RootState) => state.shelters.data;
+export const loadingSelector = (state: RootState) => state.shelters.loading;
 
 export default sheltersSlice.reducer;
 
 export const fetchShelters = () => {
-  return function (dispatch: Dispatch) {
+  return async (dispatch: Dispatch) => {
     dispatch(getShelters());
-    axios
-      .get(`${process.env.API_HOST}/api/shelters/`)
-      .then((response) => {
-        dispatch(getSheltersSuccess(response));
-      })
-      .catch((error) => {
-        dispatch(getSheltersFailure(error));
-      });
+    try {
+      const response = await axios.get(`${process.env.API_HOST}/api/shelters/`);
+      dispatch(getSheltersSuccess(response.data.data));
+
+      return response;
+    } catch {
+      dispatch(getSheltersFailure());
+    }
   };
 };
