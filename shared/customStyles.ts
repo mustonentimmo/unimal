@@ -29,3 +29,7 @@ export const selectFieldStyle = {
     display: 'none',
   }),
 };
+
+export const spinnerStyle = {
+  margin: '0 auto',
+};
