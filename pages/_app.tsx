@@ -1,22 +1,20 @@
 import '../styles/globals.css';
 
 import type { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
 
 import Layout from '@/components/Layout/Layout';
 
+import { store } from '../store';
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   );
-};
-
-MyApp.getInitialProps = async () => {
-  const res = await fetch(`${process.env.API_HOST}/api/shelters/`);
-  const shelters = await res.json();
-
-  return { pageProps: { shelters } };
 };
 
 export default MyApp;
