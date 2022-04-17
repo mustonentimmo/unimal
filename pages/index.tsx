@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -38,23 +39,25 @@ const Home = () => {
       <section id="shelter" className="mt-[3rem]">
         <div className="text-center text-2xl font-bold">Varjupaigad ({totalShelters})</div>
         <Filter />
-        <div className="flex flex-wrap gap-5 py-7">
-          {isLoading ? (
-            <Loader />
-          ) : (
-            shelters
-              .filter(filteringCriteria)
-              .map((shelter: any) => (
-                <ShelterCard
-                  key={shelter.id}
-                  id={shelter.id}
-                  name={shelter.attributes.shelter_name}
-                  description={shelter.attributes.shelter_description}
-                  image={shelter.attributes.shelter_image}
-                />
-              ))
-          )}
-        </div>
+        <motion.div layout className="flex flex-wrap gap-5 py-7">
+          <AnimatePresence>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              shelters
+                .filter(filteringCriteria)
+                .map((shelter: any) => (
+                  <ShelterCard
+                    key={shelter.id}
+                    id={shelter.id}
+                    name={shelter.attributes.shelter_name}
+                    description={shelter.attributes.shelter_description}
+                    image={shelter.attributes.shelter_image}
+                  />
+                ))
+            )}
+          </AnimatePresence>
+        </motion.div>
       </section>
     </>
   );

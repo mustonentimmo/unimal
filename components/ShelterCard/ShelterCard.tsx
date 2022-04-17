@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 interface shelterCardProps {
@@ -9,7 +10,14 @@ interface shelterCardProps {
 
 const shelterCard = ({ name, description, image, id }: shelterCardProps) => {
   return (
-    <div className="h-fit flex-[1_1_300px] rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800 md:max-w-md">
+    <motion.div
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="h-fit flex-[1_1_300px] rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800 md:max-w-md"
+    >
       <div className="h-[25rem] bg-[url('/placeholder.svg')] bg-contain bg-center"></div>
       <div className="flex h-[12rem] flex-col p-5">
         <a href="#">
@@ -27,7 +35,7 @@ const shelterCard = ({ name, description, image, id }: shelterCardProps) => {
           </button>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
