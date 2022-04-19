@@ -7,6 +7,7 @@ export const initialState = {
     sex: [],
     size: [],
     color: [],
+    age: [],
     character: [],
   },
 };
@@ -31,6 +32,9 @@ const filtersSlice = createSlice({
       if (payload.section === 'color') {
         state.animalsFilter.color = [...state.animalsFilter.color, payload.value];
       }
+      if (payload.section === 'age') {
+        state.animalsFilter.age = [...state.animalsFilter.age, payload.value];
+      }
       if (payload.section === 'character') {
         state.animalsFilter.character = [...state.animalsFilter.character, payload.value];
       }
@@ -53,6 +57,11 @@ const filtersSlice = createSlice({
       }
       if (payload.section === 'color') {
         state.animalsFilter.color = state.animalsFilter.color.filter(
+          (value) => value !== payload.value
+        );
+      }
+      if (payload.section === 'age') {
+        state.animalsFilter.age = state.animalsFilter.age.filter(
           (value) => value !== payload.value
         );
       }
