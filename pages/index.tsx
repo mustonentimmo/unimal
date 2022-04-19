@@ -1,4 +1,4 @@
-import { Jelly } from '@uiball/loaders';
+import { LeapFrog } from '@uiball/loaders';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -42,7 +42,9 @@ const Home = () => {
         <motion.div layout className="grid gap-4 py-7 sm:grid-cols-1 lg:grid-cols-3">
           <AnimatePresence>
             {isLoading ? (
-              <Jelly size={80} speed={0.9} color="black" />
+              <motion.div layout className="align-center col-span-full flex justify-center">
+                <LeapFrog size={50} speed={2.25} color="#1a56db" />
+              </motion.div>
             ) : (
               shelters
                 .filter(filteringCriteria)
