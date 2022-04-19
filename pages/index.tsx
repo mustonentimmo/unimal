@@ -1,10 +1,10 @@
+import { Jelly } from '@uiball/loaders';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Filter from '@/components/Filter/Filter';
 import Hero from '@/components/Hero/Hero';
-import { Loader } from '@/components/Loader/Loader';
 import ShelterCard from '@/components/ShelterCard/ShelterCard';
 
 import { locationFilterSelector } from '../features/filtersSlice';
@@ -16,12 +16,13 @@ const Home = () => {
   const isLoading = useSelector(loadingSelector);
   const locationFilter = useSelector(locationFilterSelector);
 
+  const totalShelters = shelters.length;
+
   useEffect(() => {
     dispatch(fetchShelters());
   }, [dispatch]);
 
-  const totalShelters = shelters.length;
-  const filteringCriteria = (shelter) => {
+  const filteringCriteria = (shelter: any) => {
     if (locationFilter === 'all' || locationFilter === '') {
       return shelters;
     }
@@ -35,14 +36,13 @@ const Home = () => {
 
   return (
     <>
-      <Hero />
+      <Hero totalShelters={totalShelters} />
       <section id="shelter" className="mt-[3rem]">
-        <div className="text-center text-2xl font-bold">Varjupaigad ({totalShelters})</div>
         <Filter />
-        <motion.div layout className="flex flex-wrap gap-5 py-7">
+        <motion.div layout className="grid gap-4 py-7 sm:grid-cols-1 lg:grid-cols-3">
           <AnimatePresence>
             {isLoading ? (
-              <Loader />
+              <Jelly size={80} speed={0.9} color="black" />
             ) : (
               shelters
                 .filter(filteringCriteria)
