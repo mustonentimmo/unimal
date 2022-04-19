@@ -1,3 +1,4 @@
+//TODO: Typing needed
 import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
