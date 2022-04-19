@@ -1,8 +1,6 @@
 import { createSlice, Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import { RootState } from '../store';
-
 export const initialState = {
   loading: false,
   hasError: false,
@@ -26,8 +24,8 @@ const sheltersSlice = createSlice({
 });
 
 export const { getShelters, getSheltersSuccess, getSheltersFailure } = sheltersSlice.actions;
-export const sheltersSelector = (state: RootState) => state.shelters.data;
-export const loadingSelector = (state: RootState) => state.shelters.loading;
+export const sheltersSelector = (state: any) => state.shelters.data;
+export const loadingSelector = (state: any) => state.shelters.loading;
 
 export default sheltersSlice.reducer;
 
@@ -37,8 +35,6 @@ export const fetchShelters = () => {
     try {
       const response = await axios.get(`${process.env.API_HOST}/api/shelters/`);
       dispatch(getSheltersSuccess(response.data.data));
-
-      return response;
     } catch {
       dispatch(getSheltersFailure());
     }
