@@ -14,6 +14,7 @@ const Filter = () => {
     <div className="flex h-[5rem] items-center rounded-lg px-[4rem] shadow-xl">
       <label className="mr-4 text-gray-500">Maakond:</label>
       <Select
+        defaultValue={{ label: 'Kõik', value: 'Kõik' }}
         styles={selectFieldStyle}
         options={counties}
         placeholder="vali"
