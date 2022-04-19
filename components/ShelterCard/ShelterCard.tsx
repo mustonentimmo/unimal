@@ -16,9 +16,9 @@ const shelterCard = ({ name, description, image, id }: shelterCardProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="h-fit flex-[1_1_300px] rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800 md:max-w-md"
+      className="h-fit rounded-lg bg-white shadow-lg"
     >
-      <div className="h-[25rem] bg-[url('/placeholder.svg')] bg-contain bg-center"></div>
+      <div className="h-[25rem] rounded-lg bg-[url('/placeholder.svg')] bg-contain bg-center"></div>
       <div className="flex h-[12rem] flex-col p-5">
         <a href="#">
           <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">{name}</h5>
