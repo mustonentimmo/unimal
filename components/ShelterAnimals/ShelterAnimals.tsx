@@ -9,14 +9,16 @@ import {
 } from '@heroicons/react/solid';
 import cn from 'classnames';
 import { Fragment, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import AnimalCard from '@/components/AnimalCard/AnimalCard';
 import { animalFilters, animalSortOptions } from '@/shared/helpers';
 
+import { addAnimalsFilter, removeAnimalsFilter } from '../../features/filtersSlice';
+
 export default function ShelterAnimals({ animals }) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-
-  console.log(animals);
+  const dispatch = useDispatch();
 
   return (
     <div className="bg-white">
@@ -216,6 +218,22 @@ export default function ShelterAnimals({ animals }) {
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
                                   defaultValue={option.value}
+                                  onChange={(event) => {
+                                    // TODO: Add as handler
+                                    event.target.checked
+                                      ? dispatch(
+                                          addAnimalsFilter({
+                                            value: event.target.value,
+                                            section: section.id,
+                                          })
+                                        )
+                                      : dispatch(
+                                          removeAnimalsFilter({
+                                            value: event.target.value,
+                                            section: section.id,
+                                          })
+                                        );
+                                  }}
                                   type="checkbox"
                                   defaultChecked={option.checked}
                                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
