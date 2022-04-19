@@ -1,4 +1,4 @@
-const Hero = () => {
+const Hero = ({ totalShelters }) => {
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="pt-16 pb-20 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
@@ -8,9 +8,8 @@ const Hero = () => {
               <span className="text-blue-700">Unimal</span> - ühtne loomade varjupaiga infosüsteem
             </h1>
             <p className="mt-4 text-xl text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae dolor in leo
-              volutpat placerat nec sit amet est. Cras id dui sed nunc tincidunt faucibus in non
-              lacus. Cras eu euismod odio.
+              Unimali eesmärk on koondada Eesti varjupaigad ühtsesse infosüsteemi. Unimali on hetkel
+              registeerinud {totalShelters} varjupaika.
             </p>
           </div>
           <div>
