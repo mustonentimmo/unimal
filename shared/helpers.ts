@@ -52,6 +52,17 @@ export const animalFilters = [
     ],
   },
   {
+    id: 'character',
+    name: 'Iseloom',
+    options: [
+      { value: 'social', label: 'Seltskondlik', checked: false },
+      { value: 'playful', label: 'Mänguhimuline', checked: false },
+      { value: 'modest', label: 'Tagasihoidlik', checked: false },
+      { value: 'calm', label: 'Rahulik', checked: false },
+      { value: 'fearful', label: 'Kartlik', checked: false },
+    ],
+  },
+  {
     id: 'size',
     name: 'Suurus',
     options: [
