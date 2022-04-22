@@ -3,7 +3,7 @@ const Hero = ({ totalShelters }) => {
     <div className="relative overflow-hidden bg-white">
       <div className="pt-16 pb-20 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative mx-auto max-w-7xl sm:static">
-          <div className="mx-auto text-center sm:max-w-xl lg:m-0">
+          <div className="mx-auto sm:text-center md:text-left sm:max-w-xl lg:m-0">
             <h1 className="font text-4xl font-extrabold tracking-tight sm:text-5xl">
               <span className="text-blue-700">Unimal</span> - ühtne loomade varjupaiga infosüsteem
             </h1>
@@ -11,6 +11,12 @@ const Hero = ({ totalShelters }) => {
               Unimali eesmärk on koondada Eesti varjupaigad ühtsesse infosüsteemi. Unimali on hetkel
               registeerinud {totalShelters} varjupaika.
             </p>
+            <button
+              type="button"
+              className="float-left mt-10 drop-shadow-lg rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 px-[1.75rem] py-[1rem] text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+            >
+              Sisene infosüsteemi >
+            </button>
           </div>
           <div>
             <div className="mt-10 hidden lg:block">
