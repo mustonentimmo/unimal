@@ -38,8 +38,14 @@ const Home = () => {
   return (
     <>
       <Hero totalShelters={totalShelters} />
-      <section id="shelter" className="mt-[3rem]">
-        <Filter />
+      <section className="mt-[3rem]">
+        <SelectField
+          label="Maakond"
+          placeholder="Vali"
+          options={counties}
+          defaultValue={{ label: 'Kõik', value: 'Kõik' }}
+          onChange={(location) => dispatch(setLocationFilter(location))}
+        />
         <motion.div layout className="grid gap-4 py-7 sm:grid-cols-1 lg:grid-cols-3">
           <AnimatePresence>
             {isLoading ? (
