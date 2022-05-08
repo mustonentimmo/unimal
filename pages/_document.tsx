@@ -1,16 +1,14 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 
-import Header from '@/components/Header/Header';
+import Navbar from '@/components/Navbar/Navbar';
 
 export default function Document() {
   return (
     <Html className="scroll-smooth text-gray-900">
-      <Head>
-        <title>Unimal</title>
-      </Head>
+      <Head />
       <body className="mx-auto max-w-[1400px] px-3 md:px-9">
-        <Header />
+        <Navbar />
         <Main />
         <NextScript />
       </body>
