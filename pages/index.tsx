@@ -3,11 +3,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Filter from '@/components/Filter/Filter';
 import Hero from '@/components/Hero/Hero';
+import SelectField from '@/components/SelectField/SelectField';
 import ShelterCard from '@/components/ShelterCard/ShelterCard';
+import { counties } from '@/shared/helpers';
 
-import { locationFilterSelector } from '../features/filtersSlice';
+import { locationFilterSelector, setLocationFilter } from '../features/filtersSlice';
 import { fetchShelters, loadingSelector, sheltersSelector } from '../features/sheltersSlice';
 
 const Home = () => {
