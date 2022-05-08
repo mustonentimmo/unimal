@@ -3,8 +3,8 @@ const Hero = ({ totalShelters }) => {
     <div className="relative overflow-hidden bg-white">
       <div className="pt-16 pb-20 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative mx-auto max-w-7xl sm:static">
-          <div className="mx-auto sm:text-center md:text-left sm:max-w-xl lg:m-0">
-            <h1 className="font text-4xl font-extrabold tracking-tight sm:text-5xl">
+          <div className="mx-auto sm:max-w-xl sm:text-center md:text-left lg:m-0">
+            <h1 className="font text-3xl font-extrabold tracking-tight sm:text-5xl">
               <span className="text-blue-700">Unimal</span> - ühtne loomade varjupaiga infosüsteem
             </h1>
             <p className="mt-4 text-xl text-gray-500">
