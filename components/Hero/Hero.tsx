@@ -11,11 +11,10 @@ const Hero = ({ totalShelters }) => {
               Unimali eesmärk on koondada Eesti varjupaigad ühtsesse infosüsteemi. Unimali on hetkel
               registeerinud {totalShelters} varjupaika.
             </p>
-            <button
-              type="button"
-              className="float-left mt-10 drop-shadow-lg rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 px-[1.75rem] py-[1rem] text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
-            >
-              Sisene infosüsteemi >
+            <button className="group font-lg relative mt-12 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-indigo-700 text-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 group-hover:from-purple-600 group-hover:to-blue-500">
+              <span className="relative rounded-md bg-white px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0">
+                Sisene infosüsteemi
+              </span>
             </button>
           </div>
           <div>
