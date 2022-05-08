@@ -1,7 +1,37 @@
 import React from 'react';
 import Select, { ActionMeta, OptionsOrGroups, PropsValue, SingleValue } from 'react-select';
 
-import { selectFieldStyle } from '@/shared/customStyles';
+const styles = {
+  option: (provided: any, state: any) => ({
+    ...provided,
+    padding: 15,
+    backgroundColor: state.isSelected ? '' : '',
+    color: state.isSelected ? '#1a56db' : '',
+    fontWeight: state.isSelected ? 700 : '',
+    cursor: 'pointer',
+    '&:hover': {
+      color: '#1a56db',
+    },
+  }),
+  control: (base: any) => ({
+    ...base,
+    border: 'none',
+    borderRadius: 0,
+    borderBottom: '3px solid #1a56db',
+    width: 300,
+    boxShadow: 'none',
+    '&:hover': {
+      borderBottom: '3px solid #1a56db',
+    },
+  }),
+  dropdownIndicator: () => ({
+    color: '#1a56db',
+    padding: '.5rem',
+  }),
+  indicatorSeparator: () => ({
+    display: 'none',
+  }),
+};
 
 interface SelectFieldProps {
   label: string;
@@ -18,7 +48,7 @@ const SelectField = ({ label, defaultValue, options, placeholder, onChange }: Se
       <label className="mr-4 text-gray-500">{label}</label>
       <Select
         defaultValue={defaultValue}
-        styles={selectFieldStyle}
+        styles={styles}
         options={options}
         placeholder={placeholder}
         onChange={onChange}
