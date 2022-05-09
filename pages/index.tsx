@@ -46,7 +46,7 @@ const Home = () => {
           defaultValue={{ label: 'Kõik', value: 'Kõik' }}
           onChange={(location) => dispatch(setLocationFilter(location))}
         />
-        <motion.div layout className="grid gap-4 py-7 sm:grid-cols-1 lg:grid-cols-3">
+        <motion.div layout className="grid gap-4 py-9 sm:grid-cols-1 lg:grid-cols-3">
           <AnimatePresence>
             {isLoading ? (
               <motion.div layout className="align-center col-span-full flex justify-center">
