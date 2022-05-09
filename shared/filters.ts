@@ -1,8 +1,13 @@
-export const counties = [
+export interface Counties {
+  value: string;
+  label: string;
+}
+
+export const counties: Counties[] = [
   { value: 'all', label: 'Kõik' },
   { value: 'harju', label: 'Harju' },
   { value: 'hiiu', label: 'Hiiu' },
-  { value: 'ida-viru', label: 'Ida-viru' },
+  { value: 'ida_viru', label: 'Ida-viru' },
   { value: 'jogeva', label: 'Jõgeva' },
   { value: 'jarva', label: 'Järva' },
   { value: 'laane', label: 'Lääne' },
