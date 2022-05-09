@@ -38,7 +38,15 @@ const ShelterDetails = ({
         { title: 'Postiindeks', value: location['postal_index'] },
       ],
     },
-    { title: 'Loomade arv', context: animalsCount },
+    {
+      title: 'Loomade arv',
+      context: [
+        {
+          title: '',
+          value: animalsCount,
+        },
+      ],
+    },
   ];
 
   return (
@@ -51,15 +59,12 @@ const ShelterDetails = ({
             {shelterInfo.map((item, index) => (
               <div key={index} className="border-t border-gray-200 pt-4">
                 <dt className="font-medium text-blue-700">{item.title}</dt>
-                {item.context.length > 1 ? (
+                {item.context.length > 0 &&
                   item['context'].map((nested_item: any, index) => (
                     <dd key={index} className="mt-2 text-sm text-gray-500">
-                      <b>{nested_item.title}</b>: {nested_item.value}
+                      {nested_item.title && <b>{nested_item.title}:</b>} {nested_item.value}
                     </dd>
-                  ))
-                ) : (
-                  <dd className="mt-2 text-sm text-gray-500">{item.context}</dd>
-                )}
+                  ))}
               </div>
             ))}
           </dl>
