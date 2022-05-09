@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Hero from '@/components/Hero/Hero';
 import SelectField from '@/components/SelectField/SelectField';
 import ShelterCard from '@/components/ShelterCard/ShelterCard';
-import { counties } from '@/shared/helpers';
+import { counties } from '@/shared/filters';
 
 import { locationFilterSelector, setLocationFilter } from '../features/filtersSlice';
 import { fetchShelters, loadingSelector, sheltersSelector } from '../features/sheltersSlice';
