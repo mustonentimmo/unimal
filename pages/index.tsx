@@ -62,6 +62,8 @@ const Home = () => {
                     name={shelter.attributes.shelter_name}
                     description={shelter.attributes.shelter_description}
                     image={shelter.attributes.shelter_image}
+                    location={shelter.attributes.shelter_location}
+                    animalsCount={shelter.attributes.shelter_animals.length}
                   />
                 ))
             )}
