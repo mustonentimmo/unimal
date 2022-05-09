@@ -31,6 +31,11 @@ const styles = {
   indicatorSeparator: () => ({
     display: 'none',
   }),
+  menuList: () => ({
+    width: '100%',
+    height: '15rem',
+    'overflow-y': 'scroll',
+  }),
 };
 
 interface SelectFieldProps {
@@ -44,7 +49,7 @@ interface SelectFieldProps {
 
 const SelectField = ({ label, defaultValue, options, placeholder, onChange }: SelectFieldProps) => {
   return (
-    <div className="flex h-[5rem] items-center rounded-lg px-[4rem] shadow-xl">
+    <div className="inline-block">
       <label className="mr-4 text-gray-500">{label}</label>
       <Select
         defaultValue={defaultValue}
