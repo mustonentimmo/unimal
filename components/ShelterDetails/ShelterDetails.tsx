@@ -51,7 +51,7 @@ const ShelterDetails = ({
     <div className="bg-white">
       <div className="grid grid-cols-1 items-center gap-y-[3rem] gap-x-[3rem] py-24 sm:py-[6rem] lg:grid-cols-2">
         <div>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Üldinfo</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight">Üldinfo</h2>
           <p className="mt-4 text-gray-500">{description}</p>
           <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
             {shelterInfo.map((item, index) => (
