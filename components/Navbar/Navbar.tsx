@@ -1,7 +1,13 @@
 import Link from 'next/link';
 
+interface Links {
+  id: number;
+  title: string;
+  href: string;
+}
+
 const Navbar = () => {
-  const links = [
+  const links: Links[] = [
     { id: 1, title: 'Varjupaigad', href: '/' },
     { id: 2, title: 'Leia koduloom', href: '/' },
     { id: 3, title: 'Anneta', href: '/' },
