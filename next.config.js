@@ -7,4 +7,7 @@ module.exports = withTM({
   env: {
     API_HOST: process.env.API_HOST,
   },
+  images: {
+    domains: ['65.108.153.196'],
+  },
 });
