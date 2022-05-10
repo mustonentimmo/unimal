@@ -7,6 +7,7 @@ import Hero from '@/components/Hero/Hero';
 import SelectField from '@/components/SelectField/SelectField';
 import ShelterCard from '@/components/ShelterCard/ShelterCard';
 import { counties } from '@/shared/filters';
+import { getFullAPIUrl } from '@/shared/utilities';
 
 import { locationFilterSelector, setLocationFilter } from '../features/filtersSlice';
 import { fetchShelters, loadingSelector, sheltersSelector } from '../features/sheltersSlice';
@@ -53,19 +54,22 @@ const Home = () => {
                 <LeapFrog size={50} speed={2.25} color="#1a56db" />
               </motion.div>
             ) : (
-              shelters
-                .filter(filteringCriteria)
-                .map((shelter: any) => (
+              shelters.filter(filteringCriteria).map((shelter: any) => {
+                const logoPath = shelter.attributes.shelter_logo.data.attributes.url;
+                const logo = logoPath ? getFullAPIUrl(logoPath) : '/placeholder.svg';
+
+                return (
                   <ShelterCard
                     key={shelter.id}
                     id={shelter.id}
                     name={shelter.attributes.shelter_name}
                     description={shelter.attributes.shelter_description}
-                    image={shelter.attributes.shelter_image}
-                    location={shelter.attributes.shelter_location}
+                    logo={logo}
+                    county={shelter.attributes.shelter_location.county}
                     animalsCount={shelter.attributes.shelter_animals.length}
                   />
-                ))
+                );
+              })
             )}
           </AnimatePresence>
         </motion.div>
