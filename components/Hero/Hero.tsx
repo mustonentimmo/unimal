@@ -1,4 +1,8 @@
-const Hero = ({ totalShelters }) => {
+interface HeroProps {
+  totalShelters: number;
+}
+
+const Hero = ({ totalShelters }: HeroProps) => {
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="pt-16 pb-20 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
