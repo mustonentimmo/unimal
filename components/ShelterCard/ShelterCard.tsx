@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaDog } from 'react-icons/fa';
 import { MdLocationOn } from 'react-icons/md';
@@ -6,20 +7,13 @@ import { MdLocationOn } from 'react-icons/md';
 interface shelterCardProps {
   id: number;
   name: string;
-  location: string;
+  county: string;
   description: string;
   animalsCount: number;
-  image: string;
+  logo: string;
 }
 
-const shelterCard = ({
-  name,
-  description,
-  image,
-  id,
-  animalsCount,
-  location,
-}: shelterCardProps) => {
+const shelterCard = ({ name, description, logo, id, animalsCount, county }: shelterCardProps) => {
   return (
     <Link href={`/shelter/${id}`}>
       <motion.div
@@ -30,7 +24,9 @@ const shelterCard = ({
         transition={{ duration: 0.3 }}
         className="h-fit cursor-pointer rounded-lg bg-white shadow-lg"
       >
-        <div className="h-[20rem] rounded-lg bg-[url('/placeholder.svg')] bg-contain bg-center"></div>
+        <div className="flex h-[20rem] min-w-full items-center justify-center overflow-hidden rounded-lg">
+          <Image src={logo} height="200px" width="200px" />
+        </div>
         <div className="flex h-[13rem] flex-col p-5">
           <h5 className="mb-2 text-2xl font-bold tracking-tight">{name}</h5>
           <div className="flex">
@@ -40,7 +36,7 @@ const shelterCard = ({
             </div>
             <div className="ml-1 inline-block flex justify-center self-start rounded bg-gradient-to-br from-rose-400 to-orange-300 px-4 py-2 align-middle text-sm text-white">
               <MdLocationOn size="1.25em" />
-              <span className="ml-1 font-medium capitalize">{location.county}</span>
+              <span className="ml-1 font-medium capitalize">{county}</span>
             </div>
           </div>
           <p className="mt-4 font-normal text-gray-700 line-clamp-4">{description}</p>
