@@ -24,16 +24,16 @@ const ShelterDetails = ({
     {
       title: 'Kontakt',
       context: [
-        { title: 'E-mail', value: contact['email'] },
-        { title: 'Telefon', value: contact['telephone'] },
+        { title: 'E-mail', value: contact['email'] || '' },
+        { title: 'Telefon', value: contact['telephone'] || '' },
       ],
     },
     {
       title: 'Asukoht',
       context: [
-        { title: 'Aadress', value: location['address'] },
-        { title: 'Maakond', value: location['county'] },
-        { title: 'Postiindeks', value: location['postal_index'] },
+        { title: 'Aadress', value: location['address'] || '' },
+        { title: 'Maakond', value: location['county'] || '' },
+        { title: 'Postiindeks', value: location['postal_index'] || '' },
       ],
     },
     {
