@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import CTASection from '@/components/CTASection/CTASection';
 import Hero from '@/components/Hero/Hero';
 import SelectField from '@/components/SelectField/SelectField';
 import ShelterCard from '@/components/ShelterCard/ShelterCard';
@@ -39,6 +40,12 @@ const Home = () => {
   return (
     <>
       <Hero totalShelters={totalShelters} />
+      <CTASection
+        topTitle="Oled varjupaiga haldaja"
+        bottomTitle="ning soovid Unimaliga ühineda?"
+        buttonText="võta ühendust"
+        href="mailto:timmo.mustonen@voco.ee"
+      />
       <section className="mt-[3rem]">
         <SelectField
           label="Maakond"
