@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --fix --ext .js,.jsx,.tsx ."
+    "lint": "eslint --fix --ext .js,.jsx,.tsx .",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
