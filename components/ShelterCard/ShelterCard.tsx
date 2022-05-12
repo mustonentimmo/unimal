@@ -22,6 +22,7 @@ const shelterCard = ({ name, description, logo, id, animalsCount, county }: shel
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
+        id={`shelter-${id}`}
         className="h-fit cursor-pointer rounded-lg bg-white shadow-lg"
       >
         <div className="flex h-[20rem] min-w-full items-center justify-center overflow-hidden rounded-lg">
