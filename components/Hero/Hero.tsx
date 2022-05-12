@@ -9,7 +9,7 @@ const Hero = ({ totalShelters }: HeroProps) => {
         <div className="relative mx-auto max-w-7xl sm:static">
           <div className="mx-auto sm:max-w-xl sm:text-center md:text-left lg:m-0">
             <h1 className="font text-3xl font-extrabold tracking-tight sm:text-5xl">
-              <span className="text-blue-700">Unimal</span> - ühtne loomade varjupaiga infosüsteem
+              <span className="text-indigo-600">Unimal</span> - ühtne loomade varjupaiga infosüsteem
             </h1>
             <p className="mt-4 text-xl text-gray-500">
               Unimali eesmärk on koondada Eesti varjupaigad ühtsesse infosüsteemi. Unimali on hetkel

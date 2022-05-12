@@ -14,11 +14,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="rounded border-gray-200 bg-white px-2 py-4 dark:bg-gray-800 sm:px-4">
+    <nav className="rounded border-gray-200 bg-white px-2 py-4 sm:px-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link href="/">
           <a className="flex items-center">
-            <span className="self-center whitespace-nowrap text-xl font-semibold text-blue-700 dark:text-white">
+            <span className="self-center whitespace-nowrap text-xl font-semibold text-indigo-600">
               Unimal
             </span>
           </a>

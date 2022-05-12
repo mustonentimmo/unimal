@@ -6,7 +6,7 @@ const styles = {
     ...provided,
     padding: 15,
     backgroundColor: state.isSelected ? '' : '',
-    color: state.isSelected ? '#1a56db' : '',
+    color: state.isSelected ? '#5850ec' : '',
     fontWeight: state.isSelected ? 700 : '',
     cursor: 'pointer',
     '&:hover': {
@@ -17,15 +17,15 @@ const styles = {
     ...base,
     border: 'none',
     borderRadius: 0,
-    borderBottom: '3px solid #1a56db',
+    borderBottom: '3px solid #5850ec',
     width: 300,
     boxShadow: 'none',
     '&:hover': {
-      borderBottom: '3px solid #1a56db',
+      borderBottom: '3px solid #5850ec',
     },
   }),
   dropdownIndicator: () => ({
-    color: '#1a56db',
+    color: '#5850ec',
     padding: '.5rem',
   }),
   indicatorSeparator: () => ({
