@@ -1,5 +1,9 @@
 import 'react-image-gallery/styles/css/image-gallery.css';
 
+import ImageGallery from 'react-image-gallery';
+
+import { getFullAPIUrl } from '@/shared/utilities';
+
 interface ShelterDetailsProps {
   contact: string;
   description: string;
@@ -47,6 +51,25 @@ const ShelterDetails = ({
     },
   ];
 
+  interface PictureData {
+    original: string;
+    thumbnail: string;
+  }
+
+  const shelterGallery = (pictures: any) => {
+    return pictures.map((picture) => {
+      const pictureUrl = getFullAPIUrl(picture.attributes.url);
+      const pictureData: PictureData = {
+        original: '',
+        thumbnail: '',
+      };
+      pictureData.original = pictureUrl;
+      pictureData.thumbnail = pictureUrl;
+
+      return pictureData;
+    });
+  };
+
   return (
     <div className="bg-white">
       <div className="grid grid-cols-1 items-center gap-y-[3rem] gap-x-[3rem] py-24 sm:py-[6rem] lg:grid-cols-2">
@@ -67,6 +90,16 @@ const ShelterDetails = ({
             ))}
           </dl>
         </div>
+        <ImageGallery
+          items={
+            pictures
+              ? shelterGallery(pictures)
+              : [{ original: '/placeholder.png', thumbnail: '/placeholder.png' }]
+          }
+          autoPlay={true}
+          onErrorImageLoad="/placeholder.svg"
+          showThumbnails={false}
+        />
       </div>
     </div>
   );
