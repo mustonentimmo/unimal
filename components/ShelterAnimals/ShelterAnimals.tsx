@@ -9,17 +9,33 @@ import {
 } from '@heroicons/react/solid';
 import cn from 'classnames';
 import { Fragment, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AnimalCard from '@/components/AnimalCard/AnimalCard';
 import { animalFilters, animalSortOptions } from '@/shared/filters';
 import { getFullAPIUrl } from '@/shared/utilities';
 
-import { addAnimalsFilter, removeAnimalsFilter } from '../../features/filtersSlice';
+import {
+  addAnimalsFilter,
+  animalsFilterSelector,
+  removeAnimalsFilter,
+} from '../../features/filtersSlice';
 
-export default function ShelterAnimals({ animals }) {
+export default function ShelterAnimals({ animals }: any) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const dispatch = useDispatch();
+  const filters = useSelector(animalsFilterSelector);
+
+  const filteringCriteria = (animal) => {
+    const speciesCriteria = filters.species.includes(animal.species);
+    const sexCriteria = filters.sex.includes(animal.sex);
+    const colorCriteria = filters.color.includes(animal.color);
+    const characterCriteria = filters.character.includes(animal.character);
+
+    if (!speciesCriteria && !sexCriteria && !colorCriteria && !characterCriteria) {
+      return animals;
+    }
+  };
 
   return (
     <div className="bg-white">
@@ -121,7 +137,7 @@ export default function ShelterAnimals({ animals }) {
 
         <main className="mx-auto">
           <div className="relative z-10 flex items-baseline justify-between border-b border-gray-200 pb-6">
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
+            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
               Varjupaiga loomad
             </h1>
 
@@ -192,7 +208,7 @@ export default function ShelterAnimals({ animals }) {
               loomad
             </h2>
 
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
               {/* Filters */}
               <form className="hidden lg:block">
                 {animalFilters.map((section) => (
@@ -204,9 +220,15 @@ export default function ShelterAnimals({ animals }) {
                             <span className="font-medium text-gray-900">{section.name}</span>
                             <span className="ml-6 flex items-center">
                               {open ? (
-                                <MinusSmIcon className="h-5 w-5" aria-hidden="true" />
+                                <MinusSmIcon
+                                  className="h-5 w-5 text-indigo-600"
+                                  aria-hidden="true"
+                                />
                               ) : (
-                                <PlusSmIcon className="h-5 w-5" aria-hidden="true" />
+                                <PlusSmIcon
+                                  className="h-5 w-5 text-indigo-600"
+                                  aria-hidden="true"
+                                />
                               )}
                             </span>
                           </Disclosure.Button>
@@ -220,7 +242,7 @@ export default function ShelterAnimals({ animals }) {
                                   name={`${section.id}[]`}
                                   defaultValue={option.value}
                                   onChange={(event) => {
-                                    // TODO: Add as handler
+                                    // TODO: Add as a handler function
                                     event.target.checked
                                       ? dispatch(
                                           addAnimalsFilter({
@@ -254,11 +276,21 @@ export default function ShelterAnimals({ animals }) {
                   </Disclosure>
                 ))}
               </form>
+              <div className="grid gap-3 sm:grid-cols-1 lg:col-start-2 lg:col-end-6 lg:grid-cols-4">
+                {animals.filter(filteringCriteria).map((animal) => {
+                  const profilePicturePath = animal.images.data[0].attributes.url;
+                  const profilePicture = profilePicturePath
+                    ? getFullAPIUrl(profilePicturePath)
+                    : '/animalPlaceholder.jpg';
 
-              <div className="flex flex-wrap gap-4 lg:col-span-3">
-                {animals.map((animal) => (
-                  <AnimalCard key={animal.id} name={animal.name} />
-                ))}
+                  return (
+                    <AnimalCard
+                      key={animal.id}
+                      name={animal.name}
+                      profilePicture={profilePicture}
+                    />
+                  );
+                })}
               </div>
             </div>
           </section>
