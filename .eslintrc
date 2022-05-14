@@ -30,6 +30,7 @@
         "simple-import-sort/exports": "error",
         "simple-import-sort/imports": "error",
         "prettier/prettier": "error",
-        "no-var": "error"
+        "no-var": "error",
+        "react/prop-types": "off"
     }
 }
