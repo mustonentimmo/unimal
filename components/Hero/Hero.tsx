@@ -16,9 +16,9 @@ const Hero = ({ totalShelters }: HeroProps) => {
               registeerinud {totalShelters} varjupaika.
             </p>
             <button className="group font-lg relative mt-12 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-indigo-700 text-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 group-hover:from-purple-600 group-hover:to-blue-500">
-              <span className="relative rounded-md bg-white px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0">
+              <a className="relative rounded-md bg-white px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0">
                 Sisene infosüsteemi
-              </span>
+              </a>
             </button>
           </div>
           <div>

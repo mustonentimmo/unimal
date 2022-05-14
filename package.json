@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --fix --ext .js,.jsx,.tsx ."
+    "lint": "eslint --fix --ext .js,.jsx,.tsx .",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
@@ -36,6 +37,7 @@
     "@types/node": "17.0.4",
     "@types/react": "17.0.38",
     "autoprefixer": "^10.4.0",
+    "cypress": "^9.6.1",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
