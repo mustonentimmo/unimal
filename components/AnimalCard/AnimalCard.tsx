@@ -4,6 +4,8 @@ import Link from 'next/link';
 interface AnimalCardProps {
   name: string;
   profilePicture: string;
+  shelterID: string;
+  animalID: string;
 }
 
 const AnimalCard = ({ name, profilePicture, shelterID, animalID }: AnimalCardProps) => {
