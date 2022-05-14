@@ -33,7 +33,7 @@ export const fetchShelters = () => {
   return async (dispatch: Dispatch) => {
     dispatch(getShelters());
     try {
-      const response = await axios.get(`${process.env.API_HOST}/api/shelters/`);
+      const response = await axios.get(`http://65.108.153.196:1337/api/shelters/`);
       dispatch(getSheltersSuccess(response.data.data));
     } catch {
       dispatch(getSheltersFailure());
