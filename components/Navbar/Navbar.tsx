@@ -18,13 +18,17 @@ const Navbar = () => {
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link href="/">
           <a className="flex items-center">
-            <span className="self-center whitespace-nowrap text-xl font-semibold text-indigo-600">
+            <span
+              id="navbar_logo"
+              className="self-center whitespace-nowrap text-xl font-semibold text-indigo-600"
+            >
               Unimal
             </span>
           </a>
         </Link>
         <div className="flex md:order-2">
           <button
+            id="navbar_cta_button"
             type="button"
             className="mr-2 mb-2 rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
           >
