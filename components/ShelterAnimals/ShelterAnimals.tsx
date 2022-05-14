@@ -12,7 +12,8 @@ import { Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import AnimalCard from '@/components/AnimalCard/AnimalCard';
-import { animalFilters, animalSortOptions } from '@/shared/helpers';
+import { animalFilters, animalSortOptions } from '@/shared/filters';
+import { getFullAPIUrl } from '@/shared/utilities';
 
 import { addAnimalsFilter, removeAnimalsFilter } from '../../features/filtersSlice';
 
