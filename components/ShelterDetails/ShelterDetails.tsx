@@ -56,7 +56,7 @@ const ShelterDetails = ({
     thumbnail: string;
   }
 
-  const shelterGallery = (pictures: any) => {
+  const getShelterPictures = (pictures: any) => {
     return pictures.map((picture) => {
       const pictureUrl = getFullAPIUrl(picture.attributes.url);
       const pictureData: PictureData = {
@@ -93,7 +93,7 @@ const ShelterDetails = ({
         <ImageGallery
           items={
             pictures
-              ? shelterGallery(pictures)
+              ? getShelterPictures(pictures)
               : [{ original: '/placeholder.png', thumbnail: '/placeholder.png' }]
           }
           autoPlay={true}
