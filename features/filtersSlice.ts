@@ -1,7 +1,20 @@
-//TODO: Typing needed
 import { createSlice } from '@reduxjs/toolkit';
 
-export const initialState = {
+interface animalsFilter {
+  species: string[];
+  sex: string[];
+  size: string[];
+  age: string[];
+  color: string[];
+  character: string[];
+}
+
+interface InitialState {
+  locationFilter: string;
+  animalsFilter: animalsFilter;
+}
+
+export const initialState: InitialState = {
   locationFilter: '',
   animalsFilter: {
     species: [],
