@@ -21,7 +21,7 @@ import {
   removeAnimalsFilter,
 } from '../../features/filtersSlice';
 
-export default function ShelterAnimals({ animals }: any) {
+export default function ShelterAnimals({ animals, shelterID }: any) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const dispatch = useDispatch();
   const filters = useSelector(animalsFilterSelector);
@@ -288,6 +288,8 @@ export default function ShelterAnimals({ animals }: any) {
                       key={animal.id}
                       name={animal.name}
                       profilePicture={profilePicture}
+                      shelterID={shelterID}
+                      animalID={animal.id}
                     />
                   );
                 })}
