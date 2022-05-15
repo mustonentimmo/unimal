@@ -10,14 +10,24 @@ import { fetchShelters, sheltersSelector } from '../../../../features/sheltersSl
 
 const Animal = () => {
   const router = useRouter();
+  const { isReady } = router;
   const { shelterID, animalID } = router.query;
 
   const dispatch = useDispatch();
-  const shelters = useSelector(sheltersSelector);
 
   useEffect(() => {
     dispatch(fetchShelters());
   }, [dispatch]);
+
+  const shelters = useSelector(sheltersSelector);
+
+  if (!isReady || shelters.length === 0) {
+    return (
+      <div className="flex justify-center align-middle">
+        <LeapFrog size={50} speed={2.25} color="#1a56db" />
+      </div>
+    );
+  }
 
   const shelter = shelters && getShelterDataByID(shelters, shelterID);
   const [animalData] = shelter && getAnimalDataByID(shelter.shelter_animals, animalID);
