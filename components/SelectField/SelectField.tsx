@@ -39,7 +39,7 @@ const styles = {
 };
 
 interface SelectFieldProps {
-  label: string;
+  label?: string;
   defaultValue: PropsValue<any>;
   placeholder: string;
   options: OptionsOrGroups<string, any> | undefined;
@@ -50,7 +50,7 @@ interface SelectFieldProps {
 const SelectField = ({ label, defaultValue, options, placeholder, onChange }: SelectFieldProps) => {
   return (
     <div className="inline-block">
-      <label className="mr-4 text-gray-500">{label}</label>
+      {label && <label className="mr-4 text-gray-500">{label}</label>}
       <Select
         defaultValue={defaultValue}
         styles={styles}
