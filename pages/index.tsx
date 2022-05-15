@@ -1,6 +1,7 @@
 import { LeapFrog } from '@uiball/loaders';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect } from 'react';
+import { MdLocationOn } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 
 import CTASection from '@/components/CTASection/CTASection';
@@ -46,15 +47,23 @@ const Home = () => {
         buttonText="võta ühendust"
         href="mailto:timmo.mustonen@voco.ee"
       />
-      <section className="mt-[3rem]">
-        <SelectField
-          label="Maakond"
-          placeholder="Vali"
-          options={counties}
-          defaultValue={{ label: 'Kõik', value: 'Kõik' }}
-          onChange={(location) => dispatch(setLocationFilter(location))}
-        />
-        <motion.div layout className="grid gap-5 py-9 sm:grid-cols-1 lg:grid-cols-3">
+      <section className="mt-[6rem]">
+        <div className="inline-flex rounded-lg bg-white px-9 py-5 drop-shadow-xl ">
+          <div className="mr-3 flex items-center justify-center rounded-md bg-indigo-600 p-3 text-white shadow-md">
+            <MdLocationOn size="1.25em" />
+          </div>
+          <SelectField
+            placeholder="Vali"
+            options={counties}
+            defaultValue={{ label: 'Kõik', value: 'Kõik' }}
+            onChange={(location) => dispatch(setLocationFilter(location))}
+          />
+        </div>
+        <motion.div
+          layout
+          initial={false}
+          className="grid gap-5 py-10 sm:grid-cols-1 lg:grid-cols-3"
+        >
           <AnimatePresence>
             {isLoading ? (
               <motion.div layout className="align-center col-span-full flex justify-center">
