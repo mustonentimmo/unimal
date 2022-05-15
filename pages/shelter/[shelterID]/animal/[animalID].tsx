@@ -21,8 +21,7 @@ const Animal = () => {
 
   const shelter = shelters && getShelterDataByID(shelters, shelterID);
   const [animalData] = shelter && getAnimalDataByID(shelter.shelter_animals, animalID);
-  const { name, description, character, color, sex, species, size, images, birth_date } =
-    animalData;
+  const { character } = animalData;
 
   return animalData ? (
     <CharacteristicSection characteristics={character} />
