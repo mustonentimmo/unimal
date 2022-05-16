@@ -30,8 +30,6 @@ export const loadingSelector = (state: any) => state.shelters.loading;
 export default sheltersSlice.reducer;
 
 export const fetchShelters = () => {
-  axios.defaults.baseURL = 'http://65.108.153.196:1337';
-
   return async (dispatch: Dispatch) => {
     dispatch(getShelters());
     try {
