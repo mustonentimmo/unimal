@@ -1,7 +1,17 @@
-const Subsection = ({ title, children }) => {
+import React from 'react';
+
+interface SubSectionProps {
+  title: string;
+  children?: React.ReactNode;
+  className?: string;
+}
+
+const Subsection: React.FC<SubSectionProps> = ({ title, children, className }) => {
   return (
-    <section>
-      <h2 className="text-xl font-extrabold leading-8 tracking-tight text-gray-900">{title}</h2>
+    <section className={className}>
+      <h2 className="mb-2 text-xl font-extrabold leading-8 tracking-tight text-gray-900">
+        {title}
+      </h2>
       {children}
     </section>
   );
