@@ -19,3 +19,9 @@ export const getAnimalDataByID = (animals: any, id: string | string[] | undefine
     })
   );
 };
+
+export const getGalleryData = (pictures: any) => {
+  return pictures.map((picture) => {
+    return getFullAPIUrl(picture.attributes.url);
+  });
+};
