@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
+import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 
@@ -42,7 +43,7 @@ const ImageCarousel = ({ images }) => {
           {images.map((src, index) => (
             <div className={styles['embla__slide']} key={index}>
               <div className={styles['embla__slide__inner']}>
-                <img className={styles['embla__slide__img']} src={src} />
+                <Image src={src} width="100%" height="100%" layout="fill" objectFit="cover" />
               </div>
             </div>
           ))}
