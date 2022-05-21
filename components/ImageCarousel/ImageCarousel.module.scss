@@ -1,0 +1,100 @@
+.embla {
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    &__viewport {
+        height: 25rem;
+        overflow: hidden;
+        width: 100%;
+        border-radius: 1rem;
+
+        &.is-draggable {
+            cursor: grab;
+        }
+
+        &.is-dragging {
+            cursor: grabbing;
+        }
+    }
+
+    &__container {
+        display: flex;
+        user-select: none;
+        margin-left: -10px;
+    }
+
+    &__slide {
+        position: relative;
+        min-width: 100%;
+        padding-left: 10px;
+
+        &__inner {
+            position: relative;
+            overflow: hidden;
+            height: 25rem;
+        }
+
+        &__img {
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            min-height: 100%;
+            min-width: 100%;
+            max-width: none;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__button {
+        outline: 0;
+        cursor: pointer;
+        touch-action: manipulation;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        width: 3rem;
+        height: 3rem;
+        background-color: white;
+        border-radius: 100%;
+        transform: translateY(-50%);
+        border: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+
+        &:disabled {
+            cursor: default;
+            opacity: 0.3;
+        }
+
+        &--prev {
+            left: 27px;
+        }
+
+        &--next {
+            right: 27px;
+        }
+
+        svg {
+            fill: #5850ec;
+            font-size: 2rem;
+
+            path {
+                margin: 0 auto;
+            }
+        }
+
+        &:last-of-type {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
