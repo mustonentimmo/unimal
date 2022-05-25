@@ -14,13 +14,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="rounded border-gray-200 bg-white py-4">
+    <nav className="rounded bg-white py-8">
       <div className="flex flex-wrap items-center justify-between">
         <Link href="/">
           <a className="flex items-center">
             <span
               id="navbar_logo"
-              className="self-center whitespace-nowrap text-xl font-semibold text-indigo-600"
+              className="self-center text-2xl font-semibold text-indigo-600 hover:opacity-90"
             >
               Unimal
             </span>
@@ -30,7 +30,7 @@ const Navbar = () => {
           <button
             id="navbar_cta_button"
             type="button"
-            className="rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-blue-300"
+            className="rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 px-7 py-3.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-blue-300"
           >
             <a href="http://65.108.153.196:1337/admin" target="_blank" rel="noreferrer">
               Infosüsteem
@@ -40,7 +40,7 @@ const Navbar = () => {
           <button
             data-collapse-toggle="mobile-menu-4"
             type="button"
-            className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
+            className="ml-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
             aria-controls="mobile-menu-4"
             aria-expanded="false"
           >
@@ -79,7 +79,7 @@ const Navbar = () => {
             {links.map((link) => (
               <li key={link.id}>
                 <Link href={link.href}>
-                  <a className="block rounded py-2 pr-4 pl-3 text-stone-600 text-white dark:text-white md:bg-transparent md:p-0">
+                  <a className="block py-2 pr-4 pl-3 text-stone-600 hover:text-indigo-600">
                     {link.title}
                   </a>
                 </Link>
