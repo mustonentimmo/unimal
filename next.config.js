@@ -3,11 +3,12 @@
 const withTM = require('next-transpile-modules')(['@uiball/loaders']);
 
 module.exports = withTM({
+  target: 'serverless',
   reactStrictMode: true,
   env: {
     API_HOST: process.env.API_HOST,
   },
   images: {
-    domains: ['65.108.153.196'],
+    domains: ['65.108.153.196', ''],
   },
 });
