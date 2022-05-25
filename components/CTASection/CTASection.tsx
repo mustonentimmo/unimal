@@ -8,12 +8,12 @@ interface CTASectionProps {
 const CTASection = ({ topTitle, bottomTitle, buttonText, href }: CTASectionProps) => {
   return (
     <div className="bg-gray-50">
-      <div className="mx-auto my-12 max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-20 lg:px-8">
+      <div className="mx-auto my-12 flex max-w-7xl flex-col items-center py-12 px-4 text-center sm:px-6 lg:py-20 lg:px-8">
         <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
           <span className="block">{topTitle}</span>
           <span className="block text-indigo-600">{bottomTitle}</span>
         </h2>
-        <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+        <div className="mt-8 flex lg:flex-shrink-0">
           <div className="inline-flex rounded-md shadow">
             <a
               href={href}
