@@ -48,9 +48,9 @@ const Home = () => {
         href="mailto:timmo.mustonen@voco.ee"
       />
       <section className="mt-[6rem]">
-        <div className="inline-flex rounded-lg bg-white px-9 py-5 drop-shadow-xl ">
+        <div className="mx-auto flex justify-center rounded-lg bg-white px-9 py-5 lg:justify-start">
           <div className="mr-3 flex items-center justify-center rounded-md bg-indigo-600 p-3 text-white shadow-md">
-            <MdLocationOn size="1.25em" />
+            <MdLocationOn className="animate-pulse" size="1.25em" />
           </div>
           <SelectField
             placeholder="Vali"
