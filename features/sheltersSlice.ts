@@ -30,11 +30,10 @@ export const loadingSelector = (state: any) => state.shelters.loading;
 export default sheltersSlice.reducer;
 
 export const fetchShelters = () => {
-  axios.defaults.baseURL = 'http://65.108.153.196:1337';
-
   return async (dispatch: Dispatch) => {
     dispatch(getShelters());
     try {
+      axios.defaults.baseURL = 'https://c5bd-2a01-4f9-c010-c79d-00-1.eu.ngrok.io';
       const response = await axios.get(`/api/shelters/`);
       dispatch(getSheltersSuccess(response.data.data));
     } catch {
