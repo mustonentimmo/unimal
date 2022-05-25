@@ -5,18 +5,23 @@ interface HeroProps {
 const Hero = ({ totalShelters }: HeroProps) => {
   return (
     <div className="relative overflow-hidden bg-white">
-      <div className="pt-16 pb-20 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+      <div className="py-16 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative mx-auto max-w-7xl sm:static">
-          <div className="mx-auto sm:max-w-xl sm:text-center md:text-left lg:m-0">
+          <div className="mx-auto text-center sm:max-w-xl lg:m-0 lg:text-left">
             <h1 className="font text-3xl font-extrabold tracking-tight sm:text-5xl">
               <span className="text-indigo-600">Unimal</span> - ühtne loomade varjupaiga infosüsteem
             </h1>
-            <p className="mt-4 text-xl text-gray-500">
+            <p className="text-md mt-2 text-gray-500 sm:mt-4 sm:text-xl">
               Unimali eesmärk on koondada Eesti varjupaigad ühtsesse infosüsteemi. Unimali on hetkel
               registeerinud {totalShelters} varjupaika.
             </p>
-            <button className="group font-lg relative mt-12 inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-indigo-700 text-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 group-hover:from-purple-600 group-hover:to-blue-500">
-              <a className="relative rounded-md bg-white px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0">
+            <button className="group font-lg relative mt-12 hidden items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-indigo-700 text-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 group-hover:from-purple-600 group-hover:to-blue-500 sm:inline-flex">
+              <a
+                href="http://65.108.153.196:1337/admin/"
+                target="_blank"
+                className="relative rounded-md bg-white px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0"
+                rel="noreferrer"
+              >
                 Sisene infosüsteemi
               </a>
             </button>
