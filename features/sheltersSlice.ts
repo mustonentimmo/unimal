@@ -33,7 +33,7 @@ export const fetchShelters = () => {
   return async (dispatch: Dispatch) => {
     dispatch(getShelters());
     try {
-      axios.defaults.baseURL = 'https://c5bd-2a01-4f9-c010-c79d-00-1.eu.ngrok.io';
+      axios.defaults.baseURL = process.env.API_HOST;
       const response = await axios.get(`/api/shelters/`);
       dispatch(getSheltersSuccess(response.data.data));
     } catch {
