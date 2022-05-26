@@ -50,7 +50,7 @@ const ShelterDetails = ({
 
   return (
     <div className="bg-white">
-      <div className="grid grid-cols-1 items-center gap-y-[3rem] gap-x-[3rem] py-24 sm:py-[6rem] lg:grid-cols-2">
+      <div className="grid grid-cols-1 items-center gap-y-[3rem] gap-x-[3rem] lg:grid-cols-2">
         <div>
           <h2 className="text-3xl font-extrabold tracking-tight">Üldinfo</h2>
           <p className="mt-4 text-gray-500">{description}</p>
@@ -68,7 +68,7 @@ const ShelterDetails = ({
             ))}
           </dl>
         </div>
-        <ImageCarousel images={pictures ? getGalleryData(pictures) : ['/placeholder.png']} />
+        <ImageCarousel images={getGalleryData(pictures)} />
       </div>
     </div>
   );
