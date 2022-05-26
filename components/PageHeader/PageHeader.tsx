@@ -10,7 +10,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title }: PageHeaderProps) => {
   const router = useRouter();
 
   return (
-    <div className="flex h-[6rem] items-center justify-center pt-10 text-indigo-600">
+    <div className="mb-10 flex h-[6rem] items-center justify-center text-indigo-600">
       <a
         onClick={() => router.back()}
         className="mr-auto flex cursor-pointer items-center justify-center rounded-md p-2 shadow-md duration-100 ease-in hover:scale-90 hover:opacity-90"
