@@ -9,6 +9,6 @@ module.exports = withTM({
     API_HOST: process.env.API_HOST,
   },
   images: {
-    domains: ['65.108.153.196', ''],
+    domains: ['65.108.153.196', 'unimal.ngrok.io'],
   },
 });
