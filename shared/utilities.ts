@@ -21,6 +21,9 @@ export const getAnimalDataByID = (animals: any, id: string | string[] | undefine
 };
 
 export const getGalleryData = (pictures: any) => {
+  if (pictures === null || pictures.length === 0) {
+    return ['/placeholder.png'];
+  }
   return pictures.map((picture) => {
     return getFullAPIUrl(picture.attributes.url);
   });
