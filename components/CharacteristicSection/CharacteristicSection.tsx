@@ -21,6 +21,10 @@ const CharacteristicsSection = ({ characteristics }: CharacteristicsSectionProps
   const getCharacteristics = (data) => {
     let characteristics: any = [];
 
+    if (data === null || data.length === 0) {
+      return [];
+    }
+
     for (const [key, value] of Object.entries(data)) {
       if (key !== 'id' && value === true) {
         characteristics = [...characteristics, characteristicsData[key]];
