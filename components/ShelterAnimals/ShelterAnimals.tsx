@@ -2,12 +2,12 @@ import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 import { FilterIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/solid';
 import cn from 'classnames';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import AnimalCard from '@/components/AnimalCard/AnimalCard';
 import { animalFilters, animalSortOptions } from '@/shared/filters';
-import { getFullAPIUrl } from '@/shared/utilities';
+import { getAge, getFullAPIUrl } from '@/shared/utilities';
 
 import {
   addAnimalsFilter,
@@ -16,20 +16,56 @@ import {
 } from '../../features/filtersSlice';
 
 export default function ShelterAnimals({ animals, shelterID }: any) {
+  const [filteredAnimals, setFilteredAnimals] = useState<any>([]);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const dispatch = useDispatch();
+
   const filters = useSelector(animalsFilterSelector);
 
-  const filteringCriteria = (animal) => {
-    const speciesCriteria = filters.species.includes(animal.species);
-    const sexCriteria = filters.sex.includes(animal.sex);
-    const colorCriteria = filters.color.includes(animal.color);
-    const characterCriteria = filters.character.includes(animal.character);
+  const speciesFilters = filters.species;
+  const sexFilters = filters.sex;
+  const sizeFilters = filters.size;
+  const colorFilters = filters.color;
+  const characterFilters = filters.character;
+  const ageFilters = filters.age;
 
-    if (!speciesCriteria && !sexCriteria && !colorCriteria && !characterCriteria) {
+  const speciesCriteria = (criteria) => speciesFilters.includes(criteria);
+  const sexCriteria = (criteria) => sexFilters.includes(criteria);
+  const sizeCriteria = (criteria) => sizeFilters.includes(criteria);
+  const colorCriteria = (criteria) => colorFilters.includes(criteria);
+  const characterCriteria = (criteria) => characterFilters.includes(criteria);
+  const ageCriteria = (criteria) => ageFilters.includes(getAge(criteria));
+
+  useEffect(() => {
+    const animalsArray = [...animals];
+
+    const filteredAnimals = animalsArray.filter((animal) => {
+      for (const [key, value] of Object.entries(animal)) {
+        if (key === 'species' && speciesFilters.length > 0 && !speciesCriteria(value)) {
+          return false;
+        }
+        if (key === 'sex' && sexFilters.length > 0 && !sexCriteria(value)) {
+          return false;
+        }
+        if (key === 'size' && sizeFilters.length > 0 && !sizeCriteria(value)) {
+          return false;
+        }
+        if (key === 'color' && colorFilters.length > 0 && !colorCriteria(value)) {
+          return false;
+        }
+        if (key === 'character' && characterFilters.length > 0 && !characterCriteria(value)) {
+          return false;
+        }
+        if (key === 'birth_date' && ageFilters.length > 0 && !ageCriteria(value)) {
+          return false;
+        }
+      }
+
       return animals;
-    }
-  };
+    });
+
+    setFilteredAnimals(filteredAnimals);
+  }, [filters]);
 
   return (
     <div className="">
@@ -247,22 +283,24 @@ export default function ShelterAnimals({ animals, shelterID }: any) {
               ))}
             </form>
             <div className="grid gap-3 sm:grid-cols-1 lg:col-start-2 lg:col-end-6 lg:grid-cols-4">
-              {animals.filter(filteringCriteria).map((animal) => {
-                const profilePicturePath = animal.images.data[0].attributes.url;
-                const profilePicture = profilePicturePath
-                  ? getFullAPIUrl(profilePicturePath)
-                  : '/animalPlaceholder.jpg';
+              {filteredAnimals.length > 0
+                ? filteredAnimals.map((animal: any) => {
+                    const profilePicturePath = animal.images.data[0].attributes.url;
+                    const profilePicture = profilePicturePath
+                      ? getFullAPIUrl(profilePicturePath)
+                      : '/animalPlaceholder.jpg';
 
-                return (
-                  <AnimalCard
-                    key={animal.id}
-                    name={animal.name}
-                    profilePicture={profilePicture}
-                    shelterID={shelterID}
-                    animalID={animal.id}
-                  />
-                );
-              })}
+                    return (
+                      <AnimalCard
+                        key={animal.id}
+                        name={animal.name}
+                        profilePicture={profilePicture}
+                        shelterID={shelterID}
+                        animalID={animal.id}
+                      />
+                    );
+                  })
+                : undefined}
             </div>
           </div>
         </section>
