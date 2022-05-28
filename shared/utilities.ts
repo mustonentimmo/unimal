@@ -28,3 +28,23 @@ export const getGalleryData = (pictures: any) => {
     return getFullAPIUrl(picture.attributes.url);
   });
 };
+
+export const getAge = (dateString) => {
+  const today = new Date();
+  const birthDate = new Date(dateString);
+  const year = today.getFullYear() - birthDate.getFullYear();
+  const month = today.getMonth() - birthDate.getMonth();
+  const ageInMonths = year * 12 + month;
+
+  if (ageInMonths <= 24) {
+    return 'juunior';
+  }
+
+  if (ageInMonths > 24 && ageInMonths < 120) {
+    return 'täiskasvanu';
+  }
+
+  if (ageInMonths >= 120) {
+    return 'seenior';
+  }
+};
