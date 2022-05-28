@@ -2,6 +2,7 @@ import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 import { FilterIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/solid';
 import cn from 'classnames';
+import _ from 'lodash';
 import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -33,7 +34,8 @@ export default function ShelterAnimals({ animals, shelterID }: any) {
   const sexCriteria = (criteria) => sexFilters.includes(criteria);
   const sizeCriteria = (criteria) => sizeFilters.includes(criteria);
   const colorCriteria = (criteria) => colorFilters.includes(criteria);
-  const characterCriteria = (criteria) => characterFilters.includes(criteria);
+  const characterCriteria = (criteriaArray) =>
+    characterFilters.some((filter) => _.keys(_.pickBy(criteriaArray)).includes(filter));
   const ageCriteria = (criteria) => ageFilters.includes(getAge(criteria));
 
   useEffect(() => {
@@ -283,24 +285,30 @@ export default function ShelterAnimals({ animals, shelterID }: any) {
               ))}
             </form>
             <div className="grid gap-3 sm:grid-cols-1 lg:col-start-2 lg:col-end-6 lg:grid-cols-4">
-              {filteredAnimals.length > 0
-                ? filteredAnimals.map((animal: any) => {
-                    const profilePicturePath = animal.images.data[0].attributes.url;
-                    const profilePicture = profilePicturePath
-                      ? getFullAPIUrl(profilePicturePath)
-                      : '/animalPlaceholder.jpg';
+              {filteredAnimals.length > 0 ? (
+                filteredAnimals.map((animal: any) => {
+                  const profilePicturePath = animal.images.data[0].attributes.url;
+                  const profilePicture = profilePicturePath
+                    ? getFullAPIUrl(profilePicturePath)
+                    : '/animalPlaceholder.jpg';
 
-                    return (
-                      <AnimalCard
-                        key={animal.id}
-                        name={animal.name}
-                        profilePicture={profilePicture}
-                        shelterID={shelterID}
-                        animalID={animal.id}
-                      />
-                    );
-                  })
-                : undefined}
+                  return (
+                    <AnimalCard
+                      key={animal.id}
+                      name={animal.name}
+                      profilePicture={profilePicture}
+                      shelterID={shelterID}
+                      animalID={animal.id}
+                    />
+                  );
+                })
+              ) : (
+                <div className="col-start-[1] col-end-[-1] text-center">
+                  <h1 className="mt-6 text-3xl font-semibold tracking-wide text-indigo-600">
+                    Kahjuks me ei leidnud sellist lemmiklooma 😞
+                  </h1>
+                </div>
+              )}
             </div>
           </div>
         </section>

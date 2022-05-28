@@ -61,7 +61,7 @@ export const animalFilters = [
     name: 'Iseloom',
     options: [
       { value: 'seltskondlik', label: 'Seltskondlik', checked: false },
-      { value: 'mänguhimuline', label: 'Mänguhimuline', checked: false },
+      { value: 'manguhimuline', label: 'Mänguhimuline', checked: false },
       { value: 'tagasihoidlik', label: 'Tagasihoidlik', checked: false },
       { value: 'rahulik', label: 'Rahulik', checked: false },
       { value: 'kartlik', label: 'Kartlik', checked: false },
