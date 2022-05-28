@@ -9,6 +9,7 @@ import ImageCarousel from '@/components/ImageCarousel/ImageCarousel';
 import PageHeader from '@/components/PageHeader/PageHeader';
 import Subsection from '@/components/Subsection/Subsection';
 import {
+  getAge,
   getAnimalDataByID,
   getFullAPIUrl,
   getGalleryData,
@@ -39,12 +40,15 @@ const Animal = () => {
   }
 
   const shelter = shelters && getShelterDataByID(shelters, shelterID);
-  const [animalData] = shelter && getAnimalDataByID(shelter.shelter_animals, animalID);
+  const shelterEmail = shelter.shelter_contact.email;
 
-  const { character, description, images, name, sex, species, color, size } = animalData;
+  const [animalData] = shelter && getAnimalDataByID(shelter.shelter_animals, animalID);
+  const { character, description, images, name, sex, species, color, size, birth_date } =
+    animalData;
   const profileImage = images.data[0].attributes.url
     ? getFullAPIUrl(images.data[0].attributes.url)
     : '/animalPlaceholder.jpg';
+  const age = getAge(birth_date);
 
   return (
     <main>
@@ -57,10 +61,13 @@ const Animal = () => {
           <h2 className="text-3xl font-bold text-indigo-600">{name}</h2>
           <ul className="mt-4 text-center">
             <li>
+              <b>Liik:</b> {species}
+            </li>
+            <li>
               <b>Sugu:</b> {sex}
             </li>
             <li>
-              <b>Liik:</b> {species}
+              <b>Vanus:</b> {age}
             </li>
             <li>
               <b>Värvus:</b> {color}
@@ -69,6 +76,12 @@ const Animal = () => {
               <b>Suurus:</b> {size}
             </li>
           </ul>
+          <a
+            href={`mailto:${shelterEmail}`}
+            className="mt-6 cursor-pointer rounded-lg bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 py-5 px-7 text-center text-sm font-medium text-white shadow-lg shadow-purple-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-purple-300 dark:shadow-lg dark:shadow-purple-800/80 dark:focus:ring-purple-800"
+          >
+            Tule mulle külla
+          </a>
         </div>
         <div className="col-start-1 row-start-2 row-end-3 md:col-start-2 md:row-start-1">
           <Subsection title="Kirjeldus">
