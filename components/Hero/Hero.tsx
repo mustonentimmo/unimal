@@ -12,8 +12,8 @@ const Hero = ({ totalShelters }: HeroProps) => {
               <span className="text-indigo-600">Unimal</span> - ühtne loomade varjupaiga infosüsteem
             </h1>
             <p className="text-md mt-2 text-gray-500 sm:mt-4 sm:text-xl">
-              Unimali eesmärk on koondada Eesti varjupaigad ühtsesse infosüsteemi. Unimali on hetkel
-              registeerinud {totalShelters} varjupaika.
+              Unimali eesmärk on koondada 🇪🇪 Eesti varjupaigad ühtsesse infosüsteemi. Unimali on
+              hetkel registeerinud {totalShelters} varjupaika.
             </p>
             <button className="group font-lg relative mt-12 hidden items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 p-0.5 text-indigo-700 text-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 group-hover:from-purple-600 group-hover:to-blue-500 sm:inline-flex">
               <a
